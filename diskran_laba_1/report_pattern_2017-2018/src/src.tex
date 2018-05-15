@@ -6,36 +6,79 @@
 \pagebreak
 
 \section{Исходный код}
-
-На каждой непустой строке входного файла располагается пара \enquote{ключ-значение}. Ключ представляет собой строку из 32 элементов. Значение - целое неотрицательное число. Для хранения такой пары создается динамический масссив \textit{array} из объектов класса \textit{Telement}. Внутри этого класса содержатся непосредственно сама пара, а также 2 указателя на ключ и значение.
-Данная особенность класса необходима для корректной сортировки строк без их изменения. Будут меняться только ссылки на соответствующие ключи и значения.
+Jopa
 \begin{lstlisting}[language=C]
+void sort(TElement*, int& amount_of_elems);
+int main(int argc, char *argv[])
+{
+    int size_of_array = 1; // default value
+    int amount_of_elems = 0;
+    TElement* array = new TElement[size_of_array]; // array of elems
+    while(1)
+    {
+        char ch = getchar();
+        if(ch == EOF || ch == '\0')
+            break;
+        else
+            ungetc(ch, stdin);
+        if(amount_of_elems == size_of_array)
+        {
+            TElement* tmp_buffer = new TElement[size_of_array];
+            memcpy(tmp_buffer, array, size_of_array*sizeof(TElement));
+            array = new TElement[size_of_array * 2];
+            memcpy(array, tmp_buffer, size_of_array*sizeof(TElement));
+            size_of_array *= 2;
+            delete[] tmp_buffer;
+        }
+        scanf("%s", array[amount_of_elems].Buffer);
+        scanf("%llu", &array[amount_of_elems].n);
+        ++amount_of_elems;
+        getchar();
+    }
+    sort(array, amount_of_elems);
+    for(int i = 0; i < amount_of_elems; ++i)
+    {
+        printf("%s\t", array[i].Buffer);
+        printf("%llu\n", array[i].n);
+    }
+    delete[] array;
+    return 0;
+}
+void sort(TElement* array, int& amount_of_elems)
+{
+    const int radix = 16;
+    const int strLen = 32;
+    TElement* A = new TElement [amount_of_elems];
+    for(int digit = strLen - 1; digit >= 0; --digit)
+    {
+        int C[radix] = {0};
+        for(int i = 0; i < amount_of_elems; ++i)
+        {
+            A[i] = array[i];
+            int c = array[i].Buffer[digit];
+            if (c >= '0' && c <= '9') c = c - '0';
+            else c = c - 'a' + 10; // According to ASCII table
+            ++C[c];
+        }
+        for(int i = 1; i < radix; ++i)
+            C[i] = C[i] + C[i - 1];
+        for(int i = amount_of_elems - 1; i >= 0; --i)
+        {
+            TElement val = A[i];
+            int c = A[i].Buffer[digit];
+            if (c >= '0' && c <= '9') c = c - '0';
+            else c = c - 'a' + 10; // According to ASCII table
+            int position = C[c] - 1;
+            array[position] = val;
+            --C[c];
+        }
+    }
+    delete[] A;
+}
 
 	
 \end{lstlisting}
 
-В случае, если код не помещается на одну-две страницы $A4$, тогда следует сделать табличку следующего вида:
-\begin{longtable}{|p{7.5cm}|p{7.5cm}|}
-\hline
-\rowcolor{lightgray}
-\multicolumn{2}{|c|} {main.c}\\
-\hline
-void sort(struct KV \& B, struct KV \& Res, int max, int size)&Функция сортировки подсчётом\\
-\hline
-\rowcolor{lightgray}
-\multicolumn{2}{|c|} {file1.c}\\
-\hline
-void function\_name()&Функция, \enquote{которая почти всегда работает, но неясно, что она делает}.\\
-\hline
-\end{longtable}
-В этом случае структуры или классы должны быть полностью приведены в листинге (без реализации методов).
-\begin{lstlisting}[language=C]
-struct KV{
-	int key;
-	char value;
-} KV;
-\end{lstlisting}
-\pagebreak
 
 \section{Консоль}
 \begin{alltt}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.13)  13 NOV 2017 14:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.13)  15 MAY 2018 12:30
 entering extended mode
 **./titlepage.tex
 (titlepage.tex
@@ -537,23 +537,25 @@ Missing character: There is no — in font nullfont!
 Missing character: There is no Ç in font nullfont!
 Missing character: There is no : in font nullfont!
 Missing character: There is no – in font nullfont!
-Missing character: There is no í in font nullfont!
+Missing character: There is no ê in font nullfont!
 Missing character: There is no . in font nullfont!
 Missing character: There is no – in font nullfont!
-Missing character: There is no ò in font nullfont!
+Missing character: There is no ¢ in font nullfont!
 Missing character: There is no . in font nullfont!
 Missing character: There is no – in font nullfont!
-Missing character: There is no ü in font nullfont!
+Missing character: There is no ë in font nullfont!
+Missing character: There is no – in font nullfont!
+Missing character: There is no ∞ in font nullfont!
 Missing character: There is no — in font nullfont!
-Missing character: There is no É in font nullfont!
+Missing character: There is no Ö in font nullfont!
 Missing character: There is no – in font nullfont!
-Missing character: There is no ø in font nullfont!
+Missing character: There is no ∞ in font nullfont!
+Missing character: There is no — in font nullfont!
+Missing character: There is no Ä in font nullfont!
 Missing character: There is no – in font nullfont!
-Missing character: There is no ∫ in font nullfont!
+Missing character: There is no µ in font nullfont!
 Missing character: There is no – in font nullfont!
-Missing character: There is no ∏ in font nullfont!
-Missing character: There is no – in font nullfont!
-Missing character: There is no Ω in font nullfont!
+Missing character: There is no ≤ in font nullfont!
 Missing character: There is no – in font nullfont!
 Missing character: There is no ü in font nullfont!
 Missing character: There is no — in font nullfont!
@@ -688,7 +690,7 @@ Overfull \hbox (3.19443pt too wide) in paragraph at lines 45--46
 
 
 Overfull \hbox (22.99988pt too wide) in paragraph at lines 45--46
- \OT1/cmr/bx/n/10 2017 
+ \OT1/cmr/bx/n/10 2018 
  []
 
 
@@ -713,7 +715,7 @@ or  <return>  to continue without it.
  
 Here is how much of TeX's memory you used:
  14 strings out of 493312
- 317 string characters out of 3138889
+ 335 string characters out of 3138889
  54761 words of memory out of 3000000
  3661 multiletter control sequences out of 15000+200000
  3948 words of font info for 15 fonts, out of 3000000 for 9000

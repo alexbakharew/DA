@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.13)  23 NOV 2017 14:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.13)  15 MAY 2018 12:39
 entering extended mode
 **./report.tex
 (report.tex
@@ -1101,109 +1101,39 @@ Package babel Info: Redefining russian shorthand "|
 (babel)             in language append on input line 8.
 Package babel Info: Redefining russian shorthand "~
 (babel)             in language append on input line 8.
-
-Overfull \hbox (13.94135pt too wide) in paragraph at lines 10--12
-\T2B/cmtt/m/n/12 На каждой непустой строке входного файла располагается пара ѕ 
- ключ-значениеї.
- []
-
-
-Overfull \hbox (38.63531pt too wide) in paragraph at lines 10--12
-\T2B/cmtt/m/n/12 Ключ представляет собой строку из 32 элементов. Значение - цел
-ое неотрицательное
- []
-
-
-Overfull \hbox (34.54465pt too wide) in paragraph at lines 10--12
-\T2B/cmtt/m/n/12 число. Для хранения такой пары создается динамический масссив 
-\T2B/cmtt/m/it/12 array \T2B/cmtt/m/n/12 из объектов
- []
-
-
-Overfull \hbox (1.59436pt too wide) in paragraph at lines 10--12
-\T2B/cmtt/m/n/12 класса \T2B/cmtt/m/it/12 Telement\T2B/cmtt/m/n/12 . Внутри это
-го класса содержатся непосредственно сама пара,
- []
-
-
-Overfull \hbox (13.94135pt too wide) in paragraph at lines 10--12
-\T2B/cmtt/m/n/12 а также 2 указателя на ключ и значение. Данная особенность кла
-сса необходима
- []
-
-
-Overfull \hbox (26.28833pt too wide) in paragraph at lines 10--12
-\T2B/cmtt/m/n/12 для корректной сортировки строк без их изменения. Будут менять
-ся только ссылки
- []
-
-Package csquotes Info: Input encoding change on input line 12.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
-File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
-)
-Overfull \hbox (34.79802pt too wide) in paragraph at lines 17--18
-[]\T2B/cmtt/m/n/12 В случае, если код не помещается на одну-две страницы $\OML/
-cmm/m/it/12 A\OT1/cmr/m/n/12 4$\T2B/cmtt/m/n/12 , тогда следует сделать
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--23
-[]|\T2B/cmtt/m/n/12 void sort(struct KV & B, struct KV
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 28--29
-[]|\T2B/cmtt/m/n/12 Функция, ѕ  которая почти всегда
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 28--29
-\T2B/cmtt/m/n/12 работает, но неясно, что она
- []
-
-
-Underfull \vbox (badness 10000) detected at line 30
- []
-
-
-Overfull \hbox (20.11484pt too wide) in paragraph at lines 31--32
-[]\T2B/cmtt/m/n/12 В этом случае структуры или классы должны быть полностью при
-ведены в листинге
- []
-
-Package csquotes Info: Input encoding change on input line 32.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
+Package csquotes Info: Input encoding change on input line 10.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 LaTeX Font Info:    Font shape `T2B/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T2B/cmtt/m/n' tried instead on input line 33.
+(Font)              Font shape `T2B/cmtt/m/n' tried instead on input line 11.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 39.
+(babel)             in language append on input line 58.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 39.
+(babel)             in language append on input line 58.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 39.
+(babel)             in language append on input line 58.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 39.
+(babel)             in language append on input line 58.
  [3]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 40.
+(babel)             in language append on input line 83.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 40.
+(babel)             in language append on input line 83.
 
-Overfull \hbox (26.28833pt too wide) in paragraph at lines 42--42
+Overfull \hbox (26.28833pt too wide) in paragraph at lines 85--85
 []\T2B/cmtt/m/n/12 a.kukhticev$ gcc -pedantic -Wall -std=c99 -Werror -Wno-sign-
 compare -lm da10.c
  []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 55.
+(babel)             in language append on input line 98.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 55.
+(babel)             in language append on input line 98.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 55.
+(babel)             in language append on input line 98.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 55.
+(babel)             in language append on input line 98.
 [4]) (banchmark.tex
 Package babel Info: Redefining russian shorthand "|
 (babel)             in language append on input line 1.
@@ -1337,29 +1267,31 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 40.
 ### simple group (level 1) entered at line 12 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 13788 strings out of 493312
- 185295 string characters out of 3138889
- 304777 words of memory out of 3000000
- 17125 multiletter control sequences out of 15000+200000
- 13904 words of font info for 42 fonts, out of 3000000 for 9000
+ 13909 strings out of 493312
+ 186753 string characters out of 3138889
+ 427777 words of memory out of 3000000
+ 17186 multiletter control sequences out of 15000+200000
+ 14213 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,7n,58p,957b,1590s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,7n,58p,957b,2439s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\repeinik\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh
-\lh-t2b\dpi600\lbtt1000.pk> <C:\Users\repeinik\AppData\Local\MiKTeX\2.9\fonts\p
-k\ljfour\lh\lh-t2b\dpi600\lbrm1000.pk> <C:\Users\repeinik\AppData\Local\MiKTeX\
-2.9\fonts\pk\ljfour\lh\lh-t2b\dpi600\lbit1200.pk> <C:\Users\repeinik\AppData\Lo
-cal\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2b\dpi600\lbtt1200.pk> <C:\Users\repeinik
-\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2b\dpi600\lbrm1200.pk> <C:\Use
-rs\repeinik\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2b\dpi600\lbbx1200.
+\lh-t2b\dpi600\lbit1200.pk> <C:\Users\repeinik\AppData\Local\MiKTeX\2.9\fonts\p
+k\ljfour\lh\lh-t2b\dpi600\lbit1000.pk> <C:\Users\repeinik\AppData\Local\MiKTeX\
+2.9\fonts\pk\ljfour\lh\lh-t2b\dpi600\lbtt1000.pk> <C:\Users\repeinik\AppData\Lo
+cal\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2b\dpi600\lbrm1000.pk> <C:\Users\repeinik
+\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2b\dpi600\lbtt1200.pk> <C:\Use
+rs\repeinik\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2b\dpi600\lbrm1200.
 pk> <C:\Users\repeinik\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2b\dpi60
-0\lbbx1440.pk> <C:\Users\repeinik\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\l
-h-t2b\dpi600\lbbx1728.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-r12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on report.pdf (8 pages, 168880 bytes).
+0\lbbx1200.pk> <C:\Users\repeinik\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\l
+h-t2b\dpi600\lbbx1440.pk> <C:\Users\repeinik\AppData\Local\MiKTeX\2.9\fonts\pk\
+ljfour\lh\lh-t2b\dpi600\lbbx1728.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+>
+Output written on report.pdf (8 pages, 195127 bytes).
 PDF statistics:
- 473 PDF objects out of 1000 (max. 8388607)
- 25 named destinations out of 1000 (max. 500000)
+ 607 PDF objects out of 1000 (max. 8388607)
+ 86 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
