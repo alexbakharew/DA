@@ -82,17 +82,17 @@ void sort(TElement* array, int& amount_of_elems)
 
 \section{Консоль}
 \begin{alltt}
-a.kukhticev$ gcc -pedantic -Wall -std=c99 -Werror -Wno-sign-compare -lm da10.c -o da10 --some_long_argument=true
-a.kukhticev$ cat test1 
-87	a
-13	b
-89	c
-13	d
-a.kukhticev$ ./da10 < test1 
-13	b
-13	d
-87	a
-89	c
+alex$ g++ -std=c++11 -o da_1 -pedantic -Wall -Werror -Wno-sign-compare -Wno-long-long -lm main.cpp sort.cpp 
+alex$ cat 01.t 
+00000000000000000000000000000000 13207862122685464576
+ffffffffffffffffffffffffffffffff 7670388314707853312
+00000000000000000000000000000000 4588010303972900864
+ffffffffffffffffffffffffffffffff 12992997081104908288
+alex$ ./da_1 < 01.t
+00000000000000000000000000000000 13207862122685464576
+00000000000000000000000000000000 4588010303972900864
+ffffffffffffffffffffffffffffffff 7670388314707853312
+ffffffffffffffffffffffffffffffff 12992997081104908288
 \end{alltt}
 \pagebreak
 
