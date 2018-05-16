@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.13)  15 MAY 2018 19:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.13)  16 MAY 2018 11:07
 entering extended mode
 **./report.tex
 (report.tex
@@ -1059,81 +1059,94 @@ Package babel Info: Redefining russian shorthand "|
 Package babel Info: Redefining russian shorthand "~
 (babel)             in language append on input line 1.
 
-Overfull \hbox (32.46182pt too wide) in paragraph at lines 4--5
+Overfull \hbox (32.46182pt too wide) in paragraph at lines 5--6
 []\T2B/cmtt/m/n/12 Идея сортировки заключается в разбиении сортируемых элементо
 в на разряды. Затем
  []
 
 
-Overfull \hbox (1.59436pt too wide) in paragraph at lines 4--5
+Overfull \hbox (1.59436pt too wide) in paragraph at lines 5--6
 \T2B/cmtt/m/n/12 выполняется устойчивая сортировка подсчетом для каждого разряд
 а. При этом,
  []
 
 
-Overfull \hbox (20.11484pt too wide) in paragraph at lines 4--5
+Overfull \hbox (20.11484pt too wide) in paragraph at lines 5--6
 \T2B/cmtt/m/n/12 для строк подходит версия MSD(Most Significant Digit) - сортир
 овка начинается
  []
 
 
-Overfull \hbox (13.94135pt too wide) in paragraph at lines 4--5
+Overfull \hbox (13.94135pt too wide) in paragraph at lines 5--6
 \T2B/cmtt/m/n/12 от самого старшего разряда. Для чисел же нужно использовать LS
 D-версию(Least
  []
 
 
-Overfull \hbox (20.11484pt too wide) in paragraph at lines 4--5
+Overfull \hbox (20.11484pt too wide) in paragraph at lines 5--6
 \T2B/cmtt/m/n/12 Significant Digit). В данной версии, сортировка начинается от 
 самого младшего
  []
 
+
+Overfull \hbox (13.94135pt too wide) in paragraph at lines 9--11
+[]\T2B/cmtt/m/n/12 -- Не является сортировкой сравнением: ни одна пара элементо
+в не сравнивается
+ []
+
+
+Overfull \hbox (38.91493pt too wide) in paragraph at lines 17--20
+[]\T2B/cmtt/m/n/12 -- Требует дополнительную память под массивы $\OML/cmm/m/it/
+12 C$ \T2B/cmtt/m/n/12 и $\OML/cmm/m/it/12 B$ \T2B/cmtt/m/n/12 размером k и n с
+оответственно
+ []
+
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 7.
+(babel)             in language append on input line 20.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 7.
+(babel)             in language append on input line 20.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 7.
+(babel)             in language append on input line 20.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 7.
+(babel)             in language append on input line 20.
 [2]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 8.
+(babel)             in language append on input line 21.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 8.
-Package csquotes Info: Input encoding change on input line 10.
+(babel)             in language append on input line 21.
+Package csquotes Info: Input encoding change on input line 23.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 LaTeX Font Info:    Font shape `T2B/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T2B/cmtt/m/n' tried instead on input line 11.
+(Font)              Font shape `T2B/cmtt/m/n' tried instead on input line 24.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 58.
+(babel)             in language append on input line 72.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 58.
+(babel)             in language append on input line 72.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 58.
+(babel)             in language append on input line 72.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 58.
+(babel)             in language append on input line 72.
  [3]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 83.
+(babel)             in language append on input line 96.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 83.
+(babel)             in language append on input line 96.
 
-Overfull \hbox (69.50278pt too wide) in paragraph at lines 85--85
+Overfull \hbox (69.50278pt too wide) in paragraph at lines 98--98
 []\T2B/cmtt/m/n/12 alex$ g++ -std=c++11 -o da_1 -pedantic -Wall -Werror -Wno-si
 gn-compare -Wno-long-long
  []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 98.
+(babel)             in language append on input line 111.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 98.
+(babel)             in language append on input line 111.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 98.
+(babel)             in language append on input line 111.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 98.
+(babel)             in language append on input line 111.
 [4]) (banchmark.tex
 Package babel Info: Redefining russian shorthand "|
 (babel)             in language append on input line 1.
@@ -1202,9 +1215,21 @@ Overfull \hbox (7.76785pt too wide) in paragraph at lines 3--1
  []
 
 
-Overfull \hbox (7.76785pt too wide) in paragraph at lines 3--1
-\T2B/cmtt/m/n/12 по памяти. Я научился писать бенчмарки для оценки времени рабо
-ты программы,
+Overfull \hbox (20.11484pt too wide) in paragraph at lines 3--1
+\T2B/cmtt/m/n/12 по памяти. Однако чтобы это увидеть, надо обрабатывать большие
+ обьемы данных,
+ []
+
+
+Overfull \hbox (38.63531pt too wide) in paragraph at lines 3--1
+\T2B/cmtt/m/n/12 иначе преимущество алгоритма не так очевидно. Также, я научилс
+я писать бенчмарки
+ []
+
+
+Overfull \hbox (20.11484pt too wide) in paragraph at lines 3--1
+\T2B/cmtt/m/n/12 для оценки времени работы программы и определять сложность раб
+оты алгоритмов,
  []
 
 Package babel Info: Redefining russian shorthand "|
@@ -1261,13 +1286,13 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 40.
 ### simple group (level 1) entered at line 12 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 13907 strings out of 493312
- 186740 string characters out of 3138889
- 427777 words of memory out of 3000000
- 17185 multiletter control sequences out of 15000+200000
+ 13906 strings out of 493312
+ 186734 string characters out of 3138889
+ 431777 words of memory out of 3000000
+ 17184 multiletter control sequences out of 15000+200000
  14213 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,7n,58p,957b,2439s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,7n,58p,995b,2445s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\repeinik\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh
 \lh-t2b\dpi600\lbit1200.pk> <C:\Users\repeinik\AppData\Local\MiKTeX\2.9\fonts\p
 k\ljfour\lh\lh-t2b\dpi600\lbit1000.pk> <C:\Users\repeinik\AppData\Local\MiKTeX\
@@ -1283,9 +1308,9 @@ blic/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 >
-Output written on report.pdf (8 pages, 191024 bytes).
+Output written on report.pdf (8 pages, 193481 bytes).
 PDF statistics:
- 587 PDF objects out of 1000 (max. 8388607)
+ 588 PDF objects out of 1000 (max. 8388607)
  85 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
