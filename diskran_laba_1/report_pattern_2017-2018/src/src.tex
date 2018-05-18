@@ -16,11 +16,25 @@
 	
 	-- Требует дополнительную память под массивы $C$ и $B$
 размером k и n соответственно
+
+{\bf Описание работы программы}
+
+Сначала происходит ввод данных. Так как заранее неизвестно, сколько элементов будет обрабатываться, то исходный массив динамически расширяется. Как только встречается символ EOF, ввод считается завершенным и массив передается функции $sort$, которая сортирует данные. Затем происходит печать того же массива, который уже отсортирован. 
 \pagebreak
 
 \section{Исходный код}
 
 \begin{lstlisting}[language=C]
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+typedef struct TElement TElement;
+struct TElement
+{
+    char Buffer[33];
+    unsigned long long int n;
+};
 void sort(TElement*, int& amount_of_elems);
 int main(int argc, char *argv[])
 {
@@ -57,6 +71,7 @@ int main(int argc, char *argv[])
     delete[] array;
     return 0;
 }
+
 void sort(TElement* array, int& amount_of_elems)
 {
     const int radix = 16;
