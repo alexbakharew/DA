@@ -124,58 +124,63 @@ int main(int argc, char const *argv[])
     if(pattern.back() == ' ' || pattern.back() == '\n')
         pattern.pop_back();
 
-//----------------------------------------------------------------------------------
-   // int line = 1;
-   // int n = 1;
-    ///int i = 0;
-    //word wordsMap;
+    //---------------------------------------
+    std::vector<word> wordsMap;
+    //std::string text;
+    //int val;
+    size_t i = 0;
+    size_t line = 1;
+    size_t n = 1;
     ch = std::cin.get();
-    while(ch == '\n' || ch == '\t' || ch == ' ')// if \n follow before numbers
+    while(ch == ' ' || ch == '\n')
     {
         if(ch == '\n')
-            //++line;
-            text += "\n";
-        //++i;
+            ++line;
         ch = std::cin.get();
     }
-    std::cin.unget();
-    //now we are ready to get numbers
-    while(std::cin>>val) // getting text
+    if(ch == '\0' || ch == EOF)
+        return 0;
+    if(ch >= '0' && ch <= '9')
+        std::cin.unget(), ch = 0;
+    while(std::cin>>val)
     {
-        std::string tmp = std::to_string(val);
-        
-       // i += tmp.size() - 1;
+        std::string tmpStr = std::to_string(val);
+        text += tmpStr + " ";
+        word tmpWord;
+        if(i == 0)
+        {
+            tmpWord = {i, n, line};
+            i += tmpStr.size() - 1;
+        }
+        else
+        {
+            tmpWord = {i + 1, n, line};
+            i += tmpStr.size();            
+        }
+        wordsMap.push_back(tmpWord);
+        ++n;
 
-        text += tmp + " ";
-        ch = std::cin.get();
-        while(ch == '\n' || ch == '\t' || ch == ' ')
+        ch = std::cin.get();//proceed next symbol after val
+        if(ch == '\n')
+            ++line, n = 1;
+        ++i;
+        
+        ch = std::cin.get(); // next symbol after separator
+        while(ch == ' ' || ch == '\n')
         {
             if(ch == '\n')
             {
-                int k = text.size();
-                if(text[k - 1] == ' ')
-                    text[k - 1] = '\n';
-                else    
-                text += "\n";
-            }
-            
+                ++line, n = 1;
+            }   
             ch = std::cin.get();
-        }
-        if(ch == '\0')
-            break;
-        else
-            std::cin.unget();
+        }   
+        if(ch >= '0' && ch <= '9')
+            std::cin.unget(), ch = 0;
     }
-    if(text.size() == 0)
-            return 0;
-    text.pop_back();// We don't need last \n in this string
-    //text.pop_back();// We don't need space after last word
-    // Input is ready
-
-    std::vector<word> wordsMap = Words(text); // map of words
-    
-    //std::cout<<"Now we have "<<wordsMap.size()<<" words\n";
-    
+    text.pop_back();
+    //---------------------------------------
+    //std::cout<<pattern<<std::endl;
+    //std::cout<<text<<std::endl;
     text = pattern + "@" + text;// concatenate pattern, text and separation symbol for prefix function
 
     size_t size = pattern.size(); // necessery for KMP algo
