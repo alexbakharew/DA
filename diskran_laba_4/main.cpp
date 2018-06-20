@@ -97,9 +97,9 @@ std::vector<size_t> KMP(std::string& s, const size_t& size)
 int main(int argc, char const *argv[])
 {
     std::string pattern;
-    std::string text;
     unsigned long int val;
     int ch;
+    //--------------------------------------
     while(std::cin>>val) // getting pattern
     {
         pattern += std::to_string(val);
@@ -123,14 +123,12 @@ int main(int argc, char const *argv[])
         return 0;
     if(pattern.back() == ' ' || pattern.back() == '\n')
         pattern.pop_back();
-
     //---------------------------------------
-    std::vector<word> wordsMap;
-    //std::string text;
-    //int val;
-    size_t i = 0;
-    size_t line = 1;
-    size_t n = 1;
+    std::string raw_text;
+    std::string text;
+    
+    size_t line = 1; // we need to count lines before main text
+    
     ch = std::cin.get();
     while(ch == ' ' || ch == '\n')
     {
@@ -142,36 +140,24 @@ int main(int argc, char const *argv[])
         return 0;
     if(ch >= '0' && ch <= '9')
         std::cin.unget(), ch = 0;
+    // ready to get text
     while(std::cin>>val)
     {
         std::string tmpStr = std::to_string(val);
         text += tmpStr + " ";
         word tmpWord;
-        if(i == 0)
-        {
-            tmpWord = {i, n, line};
-            i += tmpStr.size() - 1;
-        }
-        else
-        {
-            tmpWord = {i + 1, n, line};
-            i += tmpStr.size();            
-        }
-        wordsMap.push_back(tmpWord);
-        ++n;
 
         ch = std::cin.get();//proceed next symbol after val
         if(ch == '\n')
-            ++line, n = 1;
-        ++i;
+            raw_text += "\n";
+        else
+            raw_text += " ";
         
         ch = std::cin.get(); // next symbol after separator
         while(ch == ' ' || ch == '\n')
         {
             if(ch == '\n')
-            {
-                ++line, n = 1;
-            }   
+                raw_text += "\n";    
             ch = std::cin.get();
         }   
         if(ch >= '0' && ch <= '9')
@@ -179,14 +165,13 @@ int main(int argc, char const *argv[])
     }
     text.pop_back();
     //---------------------------------------
-    //std::cout<<pattern<<std::endl;
-    //std::cout<<text<<std::endl;
+
     text = pattern + "@" + text;// concatenate pattern, text and separation symbol for prefix function
 
     size_t size = pattern.size(); // necessery for KMP algo
 
     std::vector<size_t> result = KMP(text, size);
-    //std::cout<<"There are "<<result.size()<<"matches\n";
+
     for(size_t i = 0; i < result.size(); ++i)
     {
         for(size_t j = 0; j < wordsMap.size(); ++j)
