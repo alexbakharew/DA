@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-struct word
+/*struct word
 {
     size_t begin;
     size_t n;
@@ -61,7 +61,7 @@ std::vector<word> Words(const std::string& s)
     }
     return wordsMap;
 }
-
+*/
 std::vector<size_t> prefix_function (std::string& s)
 {
     size_t n =  s.length();
@@ -142,74 +142,62 @@ int main(int argc, char const *argv[])
     if(ch >= '0' && ch <= '9')
         std::cin.unget(), ch = 0;
     // ready to get text
-//    while(std::cin>>val)  THE MAIN PROBLEM IN THIS LOOP!
-//    {
-//        std::string tmpStr = std::to_string(val);
-//        text += tmpStr + " ";
-//		raw_text += tmpStr;
-//
-//        ch = std::cin.get();//proceed next symbol after val
-//        if(ch == '\n')
-//            raw_text += "\n";
-//        else
-//            raw_text += " ";
-//        
-//        ch = std::cin.get(); // next symbol after separator
-//        while(ch == ' ' || ch == '\n')
-//        {
-//            if(ch == '\n')
-//            {
-//            	int t = raw_text.size() - 1;
-//            	if(raw_text[t] == ' ')
-//            		raw_text[t] = '\n';
-//            	else
-//            		raw_text += "\n";
-//			}    
-//            ch = std::cin.get();
-//        }   
-//        if(ch >= '0' && ch <= '9')
-//            std::cin.unget(), ch = 0;
-//    }
-    text.pop_back();
-    raw_text.pop_back();
-    //---------------------------------------
+   while(std::cin>>val)  
+   {
+        std::string tmpStr = std::to_string(val);
+        text += tmpStr + " ";
+        raw_text += tmpStr;
+        ch = std::cin.get();
 
+        while(ch == ' ' || ch == '\n')
+        {
+            if(ch == '\n')
+                raw_text += "\n";
+            ch = std::cin.get();
+        }
+        std::cin.unget();
+        if(raw_text.back() != '\n')
+            raw_text += " ";
+    
+    }
+    raw_text.pop_back();
+    raw_text += '\0';
+    text.pop_back();
+    //---------------------------------------
+    if(text.size() < pattern.size())
+        return 0;
     text = pattern + "@" + text;// concatenate pattern, text and separation symbol for prefix function
 
     size_t size = pattern.size(); // necessery for KMP algo
 
     std::vector<size_t> result = KMP(text, size);
-	std::cout<<"-----------------\n";
-	std::cout<<"I find "<<result.size()<<" matches"<<std::endl;
-//	std::cout<<result[1] - size<<std::endl;
-	std::cout<<"raw_text = "<<raw_text<<" |||\n";
-	std::cout<<"text = "<<text<<" |||\n";
-	std::cout<<"-----------------\n";
+    if(result.size() == 0)
+        return 0;
+ 	// std::cout<<"-----------------\n";
+// 	std::cout<<"I find "<<result.size()<<" matches"<<std::endl;
+// //	std::cout<<result[1] - size<<std::endl;
+ 	// std::cout<<"raw_text ="<<raw_text<<"|||\n";
+ 	// std::cout<<"text ="<<text<<"|||\n";
+// 	std::cout<<"-----------------\n";
     size_t n = 1;
     size_t j = 0; // Iter for result vector
     int shift = 0;// Amount of useless \n in raw_text
-    for(int i = 0; i < raw_text.size();)
+    for(int i = 0; i < raw_text.size(); i++)
     {
         if(raw_text[i] == '\n')
         {
-            while(raw_text[i] == '\n')
-            {
+            if(raw_text[i - 1] == '\n')
                 ++shift;
-                ++line;
-                ++i;
-            } 
-            --shift;
+            ++line;
             n = 1;
         }
-        if(raw_text[i] == ' ') 
+        else if(raw_text[i] == ' ') 
         {
-        	if(raw_text[i + 1] != ' ')
-        		++n;
-            ++i;
+            ++n;
+            
         }
-        else 
-            ++i;
-        if(result[j] - 2*size + 1 == i + shift)
+        
+        if(result[j] - 2*size + shift == i)
         {
             std::cout<<line<<", "<<n<<"\n";
             ++j;
