@@ -1,0 +1,200 @@
+\section{Описание решения}
+\textbf{АВЛ-дерево} - дерево, у которого выстота левого поддерева любого узла отличается от высоты правого не более чем на 1. Оно является частным случаем бинарного дерева. Для чего нужно соблюдать балансировку? При определенных "плохих" данных дерево может вырождаться в линейный список. Тогда в худшем случае, добавление, поиск и удаление будут производиться за линейное время. Но если использовать балансировку, то мы будем иметь классическое дерево -- дерево с большой "кроной". Такая структуризация данных уменьшит время работы с деревом -- все приведенные выше операции будут производиться за $O(logn)$.
+Самое интересное, что балансировка работает за $O(1)$ -- иными словами, мы всегда будем иметь сбалансированное дерево, вне зависимости от количества входных данных.
+
+Опишем структуру узла дерева:
+\begin{lstlisting}[language=C]
+struct TNode
+{
+    TNode* Left;
+    TNode* Right;
+    TNode* Parent;
+    char* Key;
+    unsigned long long int Number;
+    short Balance;
+};
+\end{lstlisting}
+Left -- указатель на левое поддерево данного узла
+
+Right -- указатель на правое поддерево данного узла
+
+Parent -- указатель на родительский узел данного узла
+
+Key -- указатель на массив, который является ключом
+
+Number -- значение ключа
+
+Balance -- баланс данного узла дерева
+
+В целом, процедуры добавления и удаления элементов ничем не отличаются от таких же операций в бинарном дереве. Только вот в AVL-дереве после каждых действий с деревом необходимо подниматься вверх от удаленного или добавленного элемента и вычислять балансы родительских узлов. Изначально баланс равен 0. Если в какой то вершине нарушена балансировка - т.е. баланс равен 2 или -2, то производятся повороты дерева вокруг этой вершины. Перейдем к более подробному описаню алгоритма действий с AVL-деревом.
+
+\textbf{\textit{Вставка в AVL-дерево}}
+
+$\blacktriangleright$ Вставляем элемент как в обычное дерево поиска
+
+$\blacktriangleright$ Поднимаемся вверх и пересчитываем баланс: пришли из
+левого поддерева – прибавим 1 к балансу, из правого –
+вычтем 1
+
+$\blacktriangleright$ Баланс $=$ 0 – высота не изменилась – балансировка
+окончена
+
+$\blacktriangleright$ Баланс $=$ $\pm$ 1 – высота изменилась, продолжаем подъем
+
+$\blacktriangleright$ Баланс $=$ $\pm$ 2 – инвариант нарушен, делаем
+соответствующие повороты, если получаем новый баланс,
+равный 0, то останавливаемся, иначе ($\pm$ 1) – продолжаем
+подъем 
+
+
+\textbf{\textit{Удаление из AVL-дерева}}
+
+$\blacktriangleright$  Удаляем элемент как в обычном дереве поиска
+
+$\blacktriangleright$  Поднимаемся вверх от удаленного элемента и
+пересчитываем баланс: пришли из левого поддерева –
+вычтем 1 из баланса, из правого – прибавим 1
+
+$\blacktriangleright$  Баланс $=$ $\pm$ 1 – высота не изменилась – балансировка
+окончена
+
+$\blacktriangleright$  Баланс $=$ 0 – высота уменьшилась – продолжаем
+
+$\blacktriangleright$  Баланс $=$ $\pm$ 2 – инвариант нарушен, делаем
+соответствующие повороты, если получаем новый баланс,
+равный 0, то продолжаем подъем, иначе -- останавливаемся
+
+
+\textbf{Лемма}
+
+Пусть $m_h$ -- минимальное число вершин в AVL-дереве высоты
+$h$. 
+Тогда $m_h = F_{h+2} - 1$, где $F_h$ -- $h$-ое число Фибоначчи.
+
+\pagebreak
+
+\section{Исходный код}
+\begin{longtable}{|p{7.5cm}|p{7.5cm}|}
+\hline
+\rowcolor{lightgray}
+\multicolumn{2}{|c|} {main.cpp}\\
+\hline
+void ToLowerCase(char$*$ Buffer)&Выполняет преобразование прописных букв в строчные.\\
+\hline
+bool Insert(unsigned long long int, char$\ast$, TNode$\ast\ast$, TNode$\ast\ast$, size\_t)&Функция вставки элемента. В функцию передается пара ключ/значение, текущий и родительский узлы, а так же длина ключа.\\
+\hline
+bool Search(char$\ast$ str, TNode$\ast\ast$, size\_t)&Поиск строки любого размера в дереве, начиная с некоторого узла.\\
+\hline
+bool Remove(char$\ast$, TNode$\ast\ast$, size\_t)&Удаление элемента из дерева(если таковой имеется)\\
+\hline
+void LkpLoad(TNode$\ast\ast$, TNode$\ast$, FILE$\ast$)&Сохранение поддерева, начиная с некоторого узла, в текстовый файл\\
+\hline
+void LkpSave(TNode$\ast$, FILE$\ast$)&Загрузить новое дерево взамен старого из указанного файла\\
+\hline
+\hline
+\rowcolor{lightgray}
+\multicolumn{2}{|c|} {avl\_tree.cpp}\\
+\hline
+TAvlTree()&Конструктор АВЛ-дерева\\
+\hline
+$\sim$TAvlTree()&Деструктор АВЛ-дерева\\
+\hline
+void SimpleLeftRotate(TNode$\ast$)&Поворот дерева вокруг указанной вершины влево без пересчета баланса. \\
+\hline
+void SimpleRightRotate(TNode$\ast$)&Поворот дерева вокруг указанной вершины вправо без пересчета баланса\\
+\hline
+void SimpleDelete(TNode$\ast$)&Удаление поддерева, начиная с некоторого узла\\
+\hline
+void LeftRotation(TNode$\ast$)&Малое вращение влево вокруг данного узла с восстановлением баланса во всем дереве \\
+\hline 
+void RightRotation(TNode$\ast$)&Малое вращение вправо вокруг данного узла с восстановлением баланса во всем дереве \\
+\hline
+void BigLeftRotation(TNode$\ast$)&Большое вращение влево вокруг данного узла с восстановлением баланса во всем дереве	\\
+\hline
+void BigRightRotation(TNode$\ast$)&Большое вращение вправо вокруг данного узла с восстановлением баланса во всем дереве\\
+\hline
+\pagebreak
+\hline
+void RecountBalanceInsert(TNode$\ast$, bool)&Функция для пересчета баланса при вставке. Вторым аргуметом идет информация о том, из какого дочернего узла мы пришли -- левого или правого.\\
+\hline
+void RecountBalanceDelete(TNode$\ast$, bool)&Функция для пересчета баланса при удалении. Вторым аргуметом идет информация о том, из какого дочернего узла мы пришли -- левого или правого.\\
+\hline
+void UpdateRoot()&Функция для обновления корня дерева. При поворотах, корень может перестать им быть\\
+\hline
+\end{longtable}
+avl\_tree.h
+\begin{lstlisting}[language=C]
+typedef struct TNode TNode;
+struct TNode
+{
+    TNode* Left;
+    TNode* Right;
+    TNode* Parent;
+    char* Key;
+    unsigned long long int Number;
+    short Balance;
+};
+class TAvlTree
+{
+public:
+    TAvlTree();
+    ~TAvlTree();
+    int Height(TNode*);
+    int CountBalance(TNode*);
+
+    bool Insert(unsigned long long int, char*, TNode**, TNode**, size_t);
+    bool Search(char* str, TNode**, size_t);
+    bool Remove(char*, TNode**, size_t);
+
+    void SimpleLeftRotate(TNode*);
+    void SimpleRightRotate(TNode*);
+    void SimpleDelete(TNode*);
+
+    void LeftRotation(TNode*);
+    void RightRotation(TNode*);
+    void BigLeftRotation(TNode*);
+    void BigRightRotation(TNode*);
+
+    void RecountBalanceInsert(TNode*, bool);
+    void RecountBalanceDelete(TNode*, bool);
+
+    void LkpLoad(TNode**, TNode*, FILE*);
+    void LkpSave(TNode*, FILE*);
+    void UpdateRoot();
+    TNode* Root;
+private:
+};
+\end{lstlisting}
+
+\pagebreak
+
+\section{Консоль}
+\begin{alltt}
+alex\$ make
+g++ -std=c++11 -o diskran_laba_2 -pedantic -Wall -Werror -Wno-sign-compare -Wno-long-long -lm main.cpp avl_tree.cpp
+alex\$ cat tests/01.t
+K
+- d
++ vBlN 144
++ plvh 264
+Y
+E
+- v
++ SHFi 744
+a
+B
+alex\$ ./*2 < tests/01.t
+NoSuchWord
+NoSuchWord
+OK
+OK
+NoSuchWord
+NoSuchWord
+NoSuchWord
+OK
+NoSuchWord
+NoSuchWord
+alex\$
+\end{alltt}
+\pagebreak
+

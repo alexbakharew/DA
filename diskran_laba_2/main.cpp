@@ -4,8 +4,6 @@
 #include "node.h"
 #include <cstdio>
 #include <string.h>
-#include <ctime>
-//#include "str.h"
 void ToLowerCase(char* Buffer)
 {
     for(int i = 0; i < 256; ++i)
@@ -33,7 +31,6 @@ int main(int argc, char* argv[])
             scanf("%llu", &tmpVal);
             getchar();
             tree->Insert(tmpVal, tmpStr, &(tree->Root), NULL, len);
-            //tree->CheckBalance(tree->GetRoot());
         }
         else if(command == '-') // delete
         {
@@ -44,17 +41,6 @@ int main(int argc, char* argv[])
             getchar();
             if(tree->Remove(tmpStr, &(tree->Root), len)) printf("OK\n");
             else printf("NoSuchWord\n");
-            //tree->CheckBalance(tree->GetRoot());
-        }
-        else if(command == '?')// Check balance in each node
-        {
-            tree->CheckBalance(tree->GetRoot());
-            command = getchar();
-        }
-        else if(command == '@') //Print
-        {
-            tree->print(*(tree->GetRoot()), 0);
-            getchar();
         }
         else if(command == '!')
         {
@@ -75,7 +61,6 @@ int main(int argc, char* argv[])
                 }
                 tree->SimpleDelete(tree->Root);// we will delete all nodes!
                 tree->Root = NULL;
-                tree->print(tree->Root, 0);
                 tree->LkpLoad(&(tree->Root), NULL, fPtr); // load new tree
                 fclose(fPtr);
                 printf("OK\n");

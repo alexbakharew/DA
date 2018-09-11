@@ -1,0 +1,162 @@
+\section{Тест производительности}
+Сравним работу АВЛ-дерева и контейнера map. Ниже приведены листинги генератора тестов и использования std::map.
+
+benchmark.cpp
+\begin{lstlisting}[language=C]
+void ToLowerCase(std::string& str)
+{
+    for(size_t i = 0; i != str.size(); ++i)
+    {
+        if(str[i] >= 'A' && str[i] <= 'Z')
+            str[i] += 32;
+    }
+}
+int main()
+{
+    std::map<std::string, unsigned long long int> lib;
+    char command;
+    std::string str;
+    unsigned long long int val;
+    std::cin.get(command);
+    while(!std::cin.eof())
+    {
+        if(command == '+') // + akiufh 34
+        {
+            std::cin.get();// skip space
+            std::cin>>str;
+            ToLowerCase(str);
+            std::cin.get();// skip space
+            std::cin>>val;
+            std::cin.get();// skip space
+            auto it = lib.find(str);
+            if((*it).first != str)// elem is not in lib
+            {
+                lib.insert(std::pair<std::string, unsigned long long int>(str, val));            
+                std::cout<<"OK\n";
+            }
+            else
+            {
+                std::cout<<"Exist\n";
+            }
+        }
+        else if(command == '-') // - a
+        {
+            std::cin.get();// skip space
+            std::cin>>str;
+            ToLowerCase(str);            
+            std::cin.get();// skip space            
+            auto it = lib.find(str);
+            if((*it).first == str) //elem finded
+            {
+                lib.erase(it);
+                std::cout<<"OK\n";
+            }
+            else
+            {
+                std::cout<<"NoSuchWord\n";
+            }
+        }
+        else
+        {
+            std::cin.unget();
+            std::cin>>str;
+            ToLowerCase(str);        
+            std::cin.get();// skip space
+            auto it = lib.find(str);
+            if((*it).first == str)
+            {
+                std::cout<<"OK: "<<(*it).second<<"\n";
+            }
+            else
+            {
+                std::cout<<"NoSuchWord\n";
+            }
+        }
+        std::cin.get(command);
+    } 
+    return 0;
+}
+\end{lstlisting}
+test.py
+\begin{lstlisting}[language=Python]
+import sys
+import random
+import string
+
+def get_random_key():
+    return random.choice( string.ascii_letters )
+
+actions = ["+", "?", "-"]
+test_file_name = "tests/01"
+output_file = open("tests/01.t", 'w')
+answer_file = open("tests/01.a", 'w')
+for _ in range(2000):
+    keys = dict()
+    for _ in range(3000):
+            action = random.choice( actions )
+            if action == "+":
+                key_1 = get_random_key()
+                key_2 = get_random_key()
+                key_3 = get_random_key()
+                key_4 = get_random_key()
+                key = key_1 + key_2 + key_3 + key_4
+                value = random.randint( 1, 1000 )
+                output_file.write("+ {0} {1}\n".format( key, value ))
+                key = key.lower()
+                answer = "Exist"
+                if key not in keys:
+                    answer = "OK"
+                    keys[key] = value
+                answer_file.write( "{0}\n".format( answer ) )
+            elif action == "?":
+                search_exist_element = random.choice( [ True, False ] )
+                key = random.choice( [ key for key in keys.keys() ]) if search_exist_element and len( keys.keys() ) > 0 else get_random_key()
+                output_file.write( "{0}\n".format( key ) )
+                key = key.lower()
+                if key in keys:
+                    answer = "OK: {0}".format( keys[key] )
+                else:
+                    answer = "NoSuchWord"
+                answer_file.write( "{0}\n".format( answer ) )
+            elif action == "-":
+                delete_exist_element = random.choice( [ True, False ] )
+                key = random.choice( [ key for key in keys.keys() ] ) if search_exist_element and len( keys.keys() ) > 0 else get_random_key()
+                output_file.write("- {0}\n".format(key))
+                key = key.lower()
+                if key in keys:
+                    answer = "OK"
+                    keys.pop(key)
+                else:
+                    answer = "NoSuchWord"
+                answer_file.write( "{0}\n".format(answer))
+\end{lstlisting}
+benchmark.sh
+\begin{lstlisting}[language=Bash]
+#! /bin/bash
+make
+echo "Time for AVL-tree"
+time ./*2 < tests/01.t > tmp
+g++ -std=c++14 benchmark.cpp
+echo "Time for MAP from STL"
+time ./a.out < tests/01.t > tmp
+\end{lstlisting}
+\pagebreak
+Консоль
+\begin{alltt}
+alex\$ bash bench*sh
+g++ -std=c++11 -o diskran_laba_2 -pedantic -Wall -Werror -Wno-sign-compare -Wno-long-long -lm main.cpp avl_tree.cpp
+Time for AVL-tree
+
+real    0m6.525s
+user    0m6.332s
+sys     0m0.108s
+Time for MAP from STL
+
+real    0m26.850s
+user    0m16.212s
+sys     0m10.632s
+alex\$
+\end{alltt}
+Как видно из теста производительности, AVL-дерево выигрывает по времени у std::map почти в 4-5 раз. Для теста были сгенерированы входные файлы, 6000000 строк в каждом. В них производится добавление, удаление и посик элементов. 
+В основе реализиции std::map лежит красно-черное дерево. Балансировка этого дерева происходит за $O(1)$, в то время как в AVL-дереве за $O(logn)$. Производительность работы программы зависит от ее использования. Если чаще всего нам придется искать элементы, то можно использовать AVL-дерево. Если же предвидятся частые вставки и удаления, то лучше использовать красно-черное дерево, так как балансировка будет происходить быстрее, а соответственно, быстрее будет работать программа.
+\pagebreak

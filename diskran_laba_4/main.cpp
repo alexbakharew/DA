@@ -1,67 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
-/*struct word
-{
-    size_t begin;
-    size_t n;
-    size_t line;
-};
-
-std::vector<word> Words(const std::string& s)
-{
-    std::vector<word> wordsMap;
-
-    //word init;
-    //wordsMap.push_back(init);// first and may be only one word in whole string
-    // wordsMap[0].begin = 0;
-    // wordsMap[0].line = 1;
-    // wordsMap[0].n = 1;
-
-    size_t line = 1;
-    size_t n = 1;
-    //bool isWord = false;
-    for(size_t i = 0; i < s.size(); ++i)
-    {
-        if(i == 0 && s[i] == '\n' && s[i + 1] != '\n')
-        {
-            ++line;
-            word tmp = {i + 1, n, line};
-            wordsMap.push_back(tmp);
-            ++n;
-        }
-        else if(i == 0)
-        {
-            word tmp = {i, n, line};
-            wordsMap.push_back(tmp);
-            ++n;
-        }
-        else if(s[i] == '\n' && s[i + 1] == '\n')
-        {
-            ++line;
-            n = 1;
-        }
-        else if(s[i] == '\n' && s[i + 1] != '\n')
-        {
-            if(s[i + 1] == EOF || s[i + 1] == '\0')
-                    break;
-            ++line;
-            n = 1;
-            word tmp = {i + 1, n, line};
-            wordsMap.push_back(tmp);
-            ++n;
-        }
-        else if(s[i] == ' ' && s[i + 1] != ' ' && s[i + 1] != '\n')
-        {
-            word tmp = {i + 1, n, line};
-            wordsMap.push_back(tmp);
-            ++n;
-        }
-    }
-    return wordsMap;
-}
-*/
 std::vector<size_t> prefix_function (std::string& s)
 {
     size_t n =  s.length();
@@ -119,6 +58,7 @@ int main(int argc, char const *argv[])
         else
             std::cin.unget();
     }
+    
     if(pattern.size() == 0)
         return 0;
     if(pattern.back() == ' ' || pattern.back() == '\n')

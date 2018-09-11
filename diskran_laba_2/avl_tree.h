@@ -7,7 +7,6 @@ class TAvlTree
 public:
     TAvlTree();
     ~TAvlTree();
-    TNode** GetRoot();
     int Height(TNode*);
     int CountBalance(TNode*);
 
@@ -27,11 +26,8 @@ public:
     void RecountBalanceInsert(TNode*, bool);
     void RecountBalanceDelete(TNode*, bool);
 
-    void LkpDelete(TNode**);
     void LkpLoad(TNode**, TNode*, FILE*);
     void LkpSave(TNode*, FILE*);
-    void CheckBalance(TNode**);
-    void print(TNode* node, int level);
     void UpdateRoot();
     TNode* Root;
 private:

@@ -24,11 +24,6 @@ void TAvlTree::SimpleDelete(TNode* n)
     delete n;
     n = NULL;
 }
-
-TNode** TAvlTree::GetRoot()
-{
-    return &Root;
-}
 void TAvlTree::UpdateRoot()
 {
     while(Root->Parent != NULL)
@@ -36,7 +31,6 @@ void TAvlTree::UpdateRoot()
         Root = Root->Parent;
     }
 }
-
 int TAvlTree::Height(TNode* node)
 {
     if (node == NULL) return 0;
@@ -53,7 +47,6 @@ void TAvlTree::SimpleLeftRotate(TNode* pivot)
 {
     TNode* tmp = pivot->Right->Left;
     TNode* parentOfPivot = pivot->Parent;
-
     if(parentOfPivot != NULL)
     {
         if(parentOfPivot->Left == pivot) parentOfPivot->Left = pivot->Right;
@@ -62,17 +55,14 @@ void TAvlTree::SimpleLeftRotate(TNode* pivot)
     pivot->Parent = pivot->Right;
     if(tmp != NULL) tmp->Parent = pivot;
     pivot->Right->Parent = parentOfPivot;
-
     pivot->Right->Left = pivot;
     pivot->Right = tmp;
     UpdateRoot();
 }
-
 void TAvlTree::SimpleRightRotate(TNode* pivot)
 {
     TNode* tmp = pivot->Left->Right;
     TNode* parentOfPivot = pivot->Parent;
-
     if(parentOfPivot != NULL)
     {
         if(parentOfPivot->Right == pivot) parentOfPivot->Right = pivot->Left;
@@ -81,15 +71,12 @@ void TAvlTree::SimpleRightRotate(TNode* pivot)
     pivot->Parent = pivot->Left;
     if(tmp != NULL) tmp->Parent = pivot;
     pivot->Left->Parent = parentOfPivot;
-
     pivot->Left->Right = pivot;
     pivot->Left = tmp;
     UpdateRoot();
 }
-
 void TAvlTree::LeftRotation(TNode* current)
 {
-    // according to balance table
     SimpleLeftRotate(current);
     if(current->Parent->Balance == 0)
     {
@@ -101,7 +88,6 @@ void TAvlTree::LeftRotation(TNode* current)
         current->Parent->Balance = 0;
         current->Balance = 0;
     }
-
 }
 void TAvlTree::RightRotation(TNode* current)
 {
@@ -167,41 +153,28 @@ void TAvlTree::RecountBalanceInsert(TNode* node, bool src)
 {
     if(node == NULL) return;
     if(!src)// left
-    {
         node->Balance++;
-    }
     else
-    {
         node->Balance--;
-    }
     if(node->Balance == 0) return;
     if(node->Balance > 1)//==2
     {
         int L = Height(node->Left->Left);
         int R = Height(node->Left->Right);
         if(R > L)
-        {
             BigRightRotation(node);
-        }
         else
-        {
             RightRotation(node);
-        }
         node = node->Parent;
     }
     else if(node->Balance < -1)//==-2
     {
-        //int L, R;
         int L = Height(node->Right->Left);
         int R = Height(node->Right->Right);
         if(L > R)
-        {
             BigLeftRotation(node);
-        }
         else
-        {
             LeftRotation(node);
-        }
         node = node->Parent;
     }
     if(node->Parent == NULL)return;
@@ -213,26 +186,18 @@ void TAvlTree::RecountBalanceDelete(TNode* node, bool src)
 {
     if(node == NULL) return;
     if(!src) // from left
-    {
         node->Balance--;
-    }
     else //from right
-    {
         node->Balance++;
-    }
     if(node->Balance == 1 || node->Balance == -1) return;
     if(node->Balance > 1) //==2
     {
         int L = Height(node->Left->Left);
         int R = Height(node->Left->Right);
         if(R > L)
-        {
             BigRightRotation(node);
-        }
         else
-        {
             RightRotation(node);
-        }
         node = node->Parent;
     }
     else if(node->Balance < -1)//==-2
@@ -240,13 +205,9 @@ void TAvlTree::RecountBalanceDelete(TNode* node, bool src)
         int L = Height(node->Right->Left);
         int R = Height(node->Right->Right);
         if(L > R)
-        {
             BigLeftRotation(node);
-        }
         else
-        {
             LeftRotation(node);
-        }
         node = node->Parent;
     }
     if(node == NULL) return;
@@ -269,14 +230,10 @@ bool TAvlTree::Search(char* str,  TNode** node, size_t len)
         return true;
     }
     else if(res < 0)
-    {
         return Search(str, &((*node)->Left), len);
-    }
     else if(res > 0)
-    {
         return Search(str, &((*node)->Right), len);
-    }
-    return false;
+    else return false;
 }
 bool TAvlTree::Insert(unsigned long long int number, char* str, TNode** node, TNode** parent, size_t len)
 {
@@ -310,13 +267,9 @@ bool TAvlTree::Insert(unsigned long long int number, char* str, TNode** node, TN
         return false;
     }
     else if(res < 0)
-    {
         return Insert(number, str, &((*node)->Left), node, len);
-    }
     else if(res > 0)
-    {
        return Insert(number, str, &((*node)->Right), node, len);
-    }
     else return false;
 }
 bool TAvlTree::Remove(char* str, TNode** node, size_t len)
@@ -435,17 +388,10 @@ bool TAvlTree::Remove(char* str, TNode** node, size_t len)
         }
     }
     else if(res < 0)
-    {
         return Remove(str, &(*node)->Left, len);
-    }
     else if(res > 0)
-    {
         return Remove(str, &(*node)->Right, len);
-    }
-    return false;
-}
-void TAvlTree::LkpDelete(TNode **node)
-{
+    else return false;
 }
 void TAvlTree::LkpSave(TNode* node, FILE* file)
 {
@@ -459,47 +405,20 @@ void TAvlTree::LkpSave(TNode* node, FILE* file)
 }
 void TAvlTree::LkpLoad(TNode** node, TNode* Parent, FILE* file)
 {
-        TNode tmp;
-        char tmpBuff[257];
-        if(fread(&tmp, sizeof(TNode), 1,file) < 1) return;
-        fread(tmpBuff, sizeof(tmpBuff), 1,file);
-        *node = new TNode;
-        
-        **node = tmp;
-        //if(*node == NULL) return;
-        size_t size = strlen(tmpBuff);
-        (*node)->Key = new char[size + 1];
-        strncpy((*node)->Key, tmpBuff, size);
-        (*node)->Key[size] = '\0';
-        (*node)->Parent = Parent;
-   
+    TNode tmp;
+    char tmpBuff[257];
+    if(fread(&tmp, sizeof(TNode), 1,file) < 1) return;
+    fread(tmpBuff, sizeof(tmpBuff), 1,file);
+    *node = new TNode;
+    **node = tmp;
+    //if(*node == NULL) return;
+    size_t size = strlen(tmpBuff);
+    (*node)->Key = new char[size + 1];
+    strncpy((*node)->Key, tmpBuff, size);
+    (*node)->Key[size] = '\0';
+    (*node)->Parent = Parent;
     if((*node)->Left != NULL) LkpLoad(&(*node)->Left,(*node), file);
     if((*node)->Right != NULL) LkpLoad(&(*node)->Right,(*node), file);
     else return;
-}
-void TAvlTree::CheckBalance(TNode** node)
-{
-    if((*node) == NULL) return;
-    int bal = CountBalance((*node));
-    if((*node)->Balance != bal)
-    {
-      std::cout<<"WRONG ANSWER!"<<" "<<bal<<" "<<(*node)->Key<<std::endl;
-      return;
-    }
-    CheckBalance(&(*node)->Left);
-    CheckBalance(&(*node)->Right);
-}
-void TAvlTree::print(TNode* node, int level)
-{ // lkp
-    if(node == NULL) return;
-    print(node->Right, level + 1);
-    for(int i = 0; i < level; ++i)
-    {
-        printf("   ");
-    }
-    printf("%s",node->Key);
-    printf("=");
-    printf("%d\n", node->Balance);
-    print(node->Left, level + 1);
 }
 
