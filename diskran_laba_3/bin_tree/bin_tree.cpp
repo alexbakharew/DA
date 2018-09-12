@@ -7,10 +7,10 @@ TNode::TNode()
 }
 TNode::~TNode()
 {
-    if(Left != nullptr)
-        delete Left;
-    if(Right != nullptr)
-        delete Right;
+//    if(Left != nullptr)
+//        delete Left;
+//    if(Right != nullptr)
+//        delete Right;
 }
 long TNode::GetVal()
 {
@@ -39,56 +39,44 @@ BTree::~BTree()
 }
 bool BTree::Insert(long val)
 {
-    TNode* nd = Root;
-    while(nd != nullptr)
-    {
-        if(nd->Value > val)
-            nd = nd->Left;
-        else if(nd->Value < val)
-            nd = nd->Right;
-        else
-            return false; // item already added
-    }
-    nd = new TNode;
-    if(nd == nullptr)
-        return false; // Not enough memory
-    nd->Left = nd->Right = nullptr;
-    nd->Value = val;
-    if(Root == nullptr)
-        Root = nd;
-    return true;
-}
-bool BTree::Remove(long val)
-{
-    TNode* nd = Root;
-    if(nd == nullptr)
-        return false;
-    while(nd != nullptr)
-    {
-        if(nd->Value > val)
-            nd = nd->Left;
-        else if(nd->Value < val)
-            nd = nd->Right;
-        else
-        {
-            delete nd;
-            nd = nullptr;
-            return true;
-        }
-    }
-    return false;
+    if(_insert(&Root, val))
+        return true;
+    else return false;
 }
 TNode* BTree::Find(long val)
 {
-    TNode* nd = Root;
-    while(nd != nullptr)
-    {
-        if(nd->Value > val)
-            nd = nd->Left;
-        else if(nd->Value < val)
-            nd = nd->Right;
-        else
-            return nd;
-    }
-    return nullptr;
+    return _find(&Root, val);
 }
+TNode* BTree::_find(TNode** nd, long val)
+{
+    if((*nd) == nullptr)
+        return nullptr;
+    if((*nd)->Value > val)
+        _find(&((*nd)->Left), val);
+    else if((*nd)->Value < val)
+        _find(&((*nd)->Right), val);
+    else return *nd;
+}
+bool BTree::_insert(TNode** nd, long val)
+{
+    if((*nd) == nullptr)
+    {
+        (*nd)  = new TNode;
+        if((*nd)  == nullptr)
+            return false; // Not enough memory
+        (*nd)->Left = (*nd)->Right = nullptr;
+        (*nd)->Value = val;
+        return true;
+    }
+    else if((*nd)->Value > val)
+        _insert(&((*nd)->Left), val);
+
+    else if((*nd)->Value < val)
+        _insert(&((*nd)->Right), val);
+    else return false; // item already added
+}
+bool BTree::Remove(long val)
+{
+
+}
+

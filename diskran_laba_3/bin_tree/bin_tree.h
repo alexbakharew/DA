@@ -13,7 +13,7 @@ public:
 
 friend class BTree;
 };
-#endif
+
 class BTree
 {
 public:
@@ -21,9 +21,12 @@ public:
     ~BTree();
     bool Insert(long value);
     bool Remove(long value);
-//    bool Remove(TNode* nd);
     TNode* Find(long value);
 private:
     void ClearTree(TNode* nd);
+    bool _insert(TNode** nd, long val);
+    bool _remove(TNode** nd, long val);
+    TNode* _find(TNode** nd, long val);
     TNode* Root;
 };
+#endif
