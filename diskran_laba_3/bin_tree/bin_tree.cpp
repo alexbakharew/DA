@@ -3,6 +3,10 @@
 #include "bin_tree.h"
 TNode::TNode(){}
 TNode::~TNode(){}
+void TNode::SetVal(long val)
+{
+    Value = val;
+}
 long TNode::GetVal()
 {
     return Value;

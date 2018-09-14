@@ -6,6 +6,7 @@ public:
     TNode();
     ~TNode();
     long GetVal();
+    void SetVal(long val);
  private:
      TNode* Left;
      TNode* Right;

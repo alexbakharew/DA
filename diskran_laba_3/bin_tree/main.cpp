@@ -8,16 +8,13 @@ int main()
     std::random_device rd;  //Will be used to obtain a seed for the random number engine
     std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
     std::uniform_int_distribution<> dis(-5000, 5000);
-    for(int i = 0; i < 1000; ++i)
+    for(int i = 0; i < 9000000; ++i)
     {
-        tree.Insert(
-                    i);
+        tree.Insert(dis(gen));
     }
-//    for(int i = 0; i < 5; ++i)
-//    {
-//        tree.Find(i);
-//    }
-    //tree.Insert(10);
-    //std::cout<<"OK"<<std::endl;
+    for(int i = 0; i < 9000000; ++i)
+    {
+        tree.Find(dis(gen));
+    }
     return 0;
 }
