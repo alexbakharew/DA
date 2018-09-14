@@ -23,10 +23,10 @@ public:
     bool Remove(long value);
     TNode* Find(long value);
 private:
-    void ClearTree(TNode* nd);
-    bool _insert(TNode** nd, long val);
-    bool _remove(TNode** nd, long val);
-    TNode* _find(TNode** nd, long val);
+    void ClearTree(TNode*& nd);
+    bool _insert(TNode*& nd, long val);
+    bool _remove(TNode*& nd, long val);
+    TNode* _find(TNode*& nd, long val);
     TNode* Root;
 };
 #endif
