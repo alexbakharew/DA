@@ -3,182 +3,186 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  ms/call  ms/call  name    
- 36.11      0.49     0.49  9000000     0.00     0.00  BTree::_find(TNode*&, long)
- 35.37      0.97     0.48  9000000     0.00     0.00  BTree::_insert(TNode*&, long)
-  9.58      1.10     0.13 18000000     0.00     0.00  int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_int_distribution<int>::param_type const&)
-  5.90      1.18     0.08    28847     0.00     0.00  std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::_M_gen_rand()
-  3.68      1.23     0.05                             main
-  3.32      1.28     0.05  9000000     0.00     0.00  BTree::Insert(long)
-  2.21      1.31     0.03 36000000     0.00     0.00  std::uniform_int_distribution<int>::param_type::a() const
-  2.21      1.34     0.03  9000000     0.00     0.00  BTree::Find(long)
-  0.74      1.35     0.01 18000042     0.00     0.00  std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::operator()()
-  0.74      1.36     0.01 18000000     0.00     0.00  int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&)
-  0.37      1.36     0.01        1     5.01     5.01  BTree::~BTree()
-  0.00      1.36     0.00 18000000     0.00     0.00  std::uniform_int_distribution<int>::param_type::b() const
-  0.00      1.36     0.00    10001     0.00     0.00  TNode::TNode()
-  0.00      1.36     0.00      624     0.00     0.00  std::__detail::_Mod<unsigned long, 4294967296ul, 1ul, 0ul, true, true>::__calc(unsigned long)
-  0.00      1.36     0.00      624     0.00     0.00  unsigned long std::__detail::__mod<unsigned long, 4294967296ul, 1ul, 0ul>(unsigned long)
-  0.00      1.36     0.00      623     0.00     0.00  std::__detail::_Mod<unsigned long, 624ul, 1ul, 0ul, true, true>::__calc(unsigned long)
-  0.00      1.36     0.00      623     0.00     0.00  unsigned long std::__detail::__mod<unsigned long, 624ul, 1ul, 0ul>(unsigned long)
-  0.00      1.36     0.00       19     0.00     0.00  TNode::~TNode()
-  0.00      1.36     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN5TNodeC2Ev
-  0.00      1.36     0.00        1     0.00     0.00  _GLOBAL__sub_I_main
-  0.00      1.36     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
-  0.00      1.36     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
-  0.00      1.36     0.00        1     0.00     0.00  BTree::ClearTree(TNode*&)
-  0.00      1.36     0.00        1     0.00     0.00  BTree::BTree()
-  0.00      1.36     0.00        1     0.00     0.00  std::random_device::random_device(std::string const&)
-  0.00      1.36     0.00        1     0.00     0.00  std::random_device::~random_device()
-  0.00      1.36     0.00        1     0.00     0.00  std::random_device::operator()()
-  0.00      1.36     0.00        1     0.00     0.00  std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long)
-  0.00      1.36     0.00        1     0.00     0.00  std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::mersenne_twister_engine(unsigned long)
-  0.00      1.36     0.00        1     0.00     0.00  std::uniform_int_distribution<int>::param_type::param_type(int, int)
-  0.00      1.36     0.00        1     0.00     0.00  std::uniform_int_distribution<int>::uniform_int_distribution(int, int)
+ 32.53      1.64     1.64 10000000     0.00     0.00  TBtree::Find_(TNode*&, long)
+ 24.47      2.87     1.23 10000000     0.00     0.00  TBtree::Insert_(TNode*&, long)
+ 18.30      3.79     0.92 498809892     0.00     0.00  TNode::GetVal()
+  8.36      4.22     0.42 20000000     0.00     0.00  int std::uniform_int_distribution<int>::operator()<std::random_device>(std::random_device&, std::uniform_int_distribution<int>::param_type const&)
+  5.97      4.52     0.30                             main
+  3.18      4.68     0.16    10001     0.02     0.02  TNode::SetVal(long)
+  2.88      4.82     0.15 10000000     0.00     0.00  TBtree::Find(long)
+  1.79      4.91     0.09 10000000     0.00     0.00  TBtree::Insert(long)
+  0.70      4.95     0.04 20000037     0.00     0.00  std::random_device::operator()()
+  0.60      4.98     0.03 20000000     0.00     0.00  std::uniform_int_distribution<int>::param_type::b() const
+  0.60      5.01     0.03 20000000     0.00     0.00  int std::uniform_int_distribution<int>::operator()<std::random_device>(std::random_device&)
+  0.40      5.03     0.02 40000000     0.00     0.00  std::uniform_int_distribution<int>::param_type::a() const
+  0.40      5.05     0.02        1    20.05    20.05  std::uniform_int_distribution<int>::param_type::param_type(int, int)
+  0.10      5.05     0.01        1     5.01     5.01  std::random_device::~random_device()
+  0.00      5.05     0.00    10001     0.00     0.00  TNode::TNode()
+  0.00      5.05     0.00      624     0.00     0.00  std::__detail::_Mod<unsigned long, 4294967296ul, 1ul, 0ul, true, true>::__calc(unsigned long)
+  0.00      5.05     0.00      624     0.00     0.00  unsigned long std::__detail::__mod<unsigned long, 4294967296ul, 1ul, 0ul>(unsigned long)
+  0.00      5.05     0.00      623     0.00     0.00  std::__detail::_Mod<unsigned long, 624ul, 1ul, 0ul, true, true>::__calc(unsigned long)
+  0.00      5.05     0.00      623     0.00     0.00  unsigned long std::__detail::__mod<unsigned long, 624ul, 1ul, 0ul>(unsigned long)
+  0.00      5.05     0.00        9     0.00     0.00  TNode::~TNode()
+  0.00      5.05     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN5TNodeC2Ev
+  0.00      5.05     0.00        1     0.00     0.00  _GLOBAL__sub_I_main
+  0.00      5.05     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      5.05     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      5.05     0.00        1     0.00     0.00  TBtree::ClearTree(TNode*&)
+  0.00      5.05     0.00        1     0.00     0.00  TBtree::TBtree()
+  0.00      5.05     0.00        1     0.00     0.00  TBtree::~TBtree()
+  0.00      5.05     0.00        1     0.00     0.00  std::random_device::random_device(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      5.05     0.00        1     0.00     0.00  std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long)
+  0.00      5.05     0.00        1     0.00     0.00  std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::mersenne_twister_engine(unsigned long)
+  0.00      5.05     0.00        1     0.00    20.05  std::uniform_int_distribution<int>::uniform_int_distribution(int, int)
 
 			Call graph
 
 
-granularity: each sample hit covers 2 byte(s) for 0.73% of 1.36 seconds
+granularity: each sample hit covers 2 byte(s) for 0.20% of 5.05 seconds
 
 index % time    self  children    called     name
                                                  <spontaneous>
-[1]    100.0    0.05    1.31                 main [1]
-                0.05    0.48 9000000/9000000     BTree::Insert(long) [2]
-                0.03    0.49 9000000/9000000     BTree::Find(long) [3]
-                0.01    0.25 18000000/18000000     int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&) [6]
-                0.01    0.00       1/1           BTree::~BTree() [11]
-                0.00    0.00       1/1           BTree::BTree() [30]
-                0.00    0.00       1/1           std::random_device::random_device(std::string const&) [31]
-                0.00    0.00       1/1           std::random_device::operator()() [33]
-                0.00    0.00       1/1           std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::mersenne_twister_engine(unsigned long) [35]
-                0.00    0.00       1/1           std::uniform_int_distribution<int>::uniform_int_distribution(int, int) [37]
-                0.00    0.00       1/1           std::random_device::~random_device() [32]
+[1]    100.0    0.30    4.75                 main [1]
+                0.15    2.10 10000000/10000000     TBtree::Find(long) [2]
+                0.09    1.85 10000000/10000000     TBtree::Insert(long) [4]
+                0.03    0.51 20000000/20000000     int std::uniform_int_distribution<int>::operator()<std::random_device>(std::random_device&) [7]
+                0.00    0.02       1/1           std::uniform_int_distribution<int>::uniform_int_distribution(int, int) [14]
+                0.01    0.00       1/1           std::random_device::~random_device() [15]
+                0.00    0.00       1/20000037     std::random_device::operator()() [10]
+                0.00    0.00       1/1           TBtree::TBtree() [33]
+                0.00    0.00       1/1           std::random_device::random_device(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [35]
+                0.00    0.00       1/1           std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::mersenne_twister_engine(unsigned long) [37]
+                0.00    0.00       1/1           TBtree::~TBtree() [34]
 -----------------------------------------------
-                0.05    0.48 9000000/9000000     main [1]
-[2]     38.6    0.05    0.48 9000000         BTree::Insert(long) [2]
-                0.48    0.00 9000000/9000000     BTree::_insert(TNode*&, long) [5]
+                0.15    2.10 10000000/10000000     main [1]
+[2]     44.4    0.15    2.10 10000000         TBtree::Find(long) [2]
+                1.64    0.46 10000000/10000000     TBtree::Find_(TNode*&, long) [3]
 -----------------------------------------------
-                0.03    0.49 9000000/9000000     main [1]
-[3]     38.2    0.03    0.49 9000000         BTree::Find(long) [3]
-                0.49    0.00 9000000/9000000     BTree::_find(TNode*&, long) [4]
+                             150109976             TBtree::Find_(TNode*&, long) [3]
+                1.64    0.46 10000000/10000000     TBtree::Find(long) [2]
+[3]     41.6    1.64    0.46 10000000+150109976 TBtree::Find_(TNode*&, long) [3]
+                0.46    0.00 249424922/498809892     TNode::GetVal() [6]
+                             150109976             TBtree::Find_(TNode*&, long) [3]
 -----------------------------------------------
-                             139271998             BTree::_find(TNode*&, long) [4]
-                0.49    0.00 9000000/9000000     BTree::Find(long) [3]
-[4]     36.0    0.49    0.00 9000000+139271998 BTree::_find(TNode*&, long) [4]
-                             139271998             BTree::_find(TNode*&, long) [4]
+                0.09    1.85 10000000/10000000     main [1]
+[4]     38.5    0.09    1.85 10000000         TBtree::Insert(long) [4]
+                1.23    0.62 10000000/10000000     TBtree::Insert_(TNode*&, long) [5]
 -----------------------------------------------
-                             139248273             BTree::_insert(TNode*&, long) [5]
-                0.48    0.00 9000000/9000000     BTree::Insert(long) [2]
-[5]     35.3    0.48    0.00 9000000+139248273 BTree::_insert(TNode*&, long) [5]
-                0.00    0.00   10001/10001       TNode::TNode() [19]
-                             139248273             BTree::_insert(TNode*&, long) [5]
+                             150095962             TBtree::Insert_(TNode*&, long) [5]
+                1.23    0.62 10000000/10000000     TBtree::Insert(long) [4]
+[5]     36.7    1.23    0.62 10000000+150095962 TBtree::Insert_(TNode*&, long) [5]
+                0.46    0.00 249384970/498809892     TNode::GetVal() [6]
+                0.16    0.00   10001/10001       TNode::SetVal(long) [9]
+                0.00    0.00   10001/10001       TNode::TNode() [22]
+                             150095962             TBtree::Insert_(TNode*&, long) [5]
 -----------------------------------------------
-                0.01    0.25 18000000/18000000     main [1]
-[6]     19.1    0.01    0.25 18000000         int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&) [6]
-                0.13    0.12 18000000/18000000     int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_int_distribution<int>::param_type const&) [7]
+                0.46    0.00 249384970/498809892     TBtree::Insert_(TNode*&, long) [5]
+                0.46    0.00 249424922/498809892     TBtree::Find_(TNode*&, long) [3]
+[6]     18.3    0.92    0.00 498809892         TNode::GetVal() [6]
 -----------------------------------------------
-                0.13    0.12 18000000/18000000     int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&) [6]
-[7]     18.4    0.13    0.12 18000000         int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_int_distribution<int>::param_type const&) [7]
-                0.01    0.08 18000042/18000042     std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::operator()() [8]
-                0.03    0.00 36000000/36000000     std::uniform_int_distribution<int>::param_type::a() const [10]
-                0.00    0.00 18000000/18000000     std::uniform_int_distribution<int>::param_type::b() const [18]
+                0.03    0.51 20000000/20000000     main [1]
+[7]     10.6    0.03    0.51 20000000         int std::uniform_int_distribution<int>::operator()<std::random_device>(std::random_device&) [7]
+                0.42    0.09 20000000/20000000     int std::uniform_int_distribution<int>::operator()<std::random_device>(std::random_device&, std::uniform_int_distribution<int>::param_type const&) [8]
 -----------------------------------------------
-                0.01    0.08 18000042/18000042     int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_int_distribution<int>::param_type const&) [7]
-[8]      6.6    0.01    0.08 18000042         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::operator()() [8]
-                0.08    0.00   28847/28847       std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::_M_gen_rand() [9]
+                0.42    0.09 20000000/20000000     int std::uniform_int_distribution<int>::operator()<std::random_device>(std::random_device&) [7]
+[8]     10.0    0.42    0.09 20000000         int std::uniform_int_distribution<int>::operator()<std::random_device>(std::random_device&, std::uniform_int_distribution<int>::param_type const&) [8]
+                0.04    0.00 20000036/20000037     std::random_device::operator()() [10]
+                0.03    0.00 20000000/20000000     std::uniform_int_distribution<int>::param_type::b() const [11]
+                0.02    0.00 40000000/40000000     std::uniform_int_distribution<int>::param_type::a() const [12]
 -----------------------------------------------
-                0.08    0.00   28847/28847       std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::operator()() [8]
-[9]      5.9    0.08    0.00   28847         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::_M_gen_rand() [9]
+                0.16    0.00   10001/10001       TBtree::Insert_(TNode*&, long) [5]
+[9]      3.2    0.16    0.00   10001         TNode::SetVal(long) [9]
 -----------------------------------------------
-                0.03    0.00 36000000/36000000     int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_int_distribution<int>::param_type const&) [7]
-[10]     2.2    0.03    0.00 36000000         std::uniform_int_distribution<int>::param_type::a() const [10]
+                0.00    0.00       1/20000037     main [1]
+                0.04    0.00 20000036/20000037     int std::uniform_int_distribution<int>::operator()<std::random_device>(std::random_device&, std::uniform_int_distribution<int>::param_type const&) [8]
+[10]     0.7    0.04    0.00 20000037         std::random_device::operator()() [10]
+-----------------------------------------------
+                0.03    0.00 20000000/20000000     int std::uniform_int_distribution<int>::operator()<std::random_device>(std::random_device&, std::uniform_int_distribution<int>::param_type const&) [8]
+[11]     0.6    0.03    0.00 20000000         std::uniform_int_distribution<int>::param_type::b() const [11]
+-----------------------------------------------
+                0.02    0.00 40000000/40000000     int std::uniform_int_distribution<int>::operator()<std::random_device>(std::random_device&, std::uniform_int_distribution<int>::param_type const&) [8]
+[12]     0.4    0.02    0.00 40000000         std::uniform_int_distribution<int>::param_type::a() const [12]
+-----------------------------------------------
+                0.02    0.00       1/1           std::uniform_int_distribution<int>::uniform_int_distribution(int, int) [14]
+[13]     0.4    0.02    0.00       1         std::uniform_int_distribution<int>::param_type::param_type(int, int) [13]
+-----------------------------------------------
+                0.00    0.02       1/1           main [1]
+[14]     0.4    0.00    0.02       1         std::uniform_int_distribution<int>::uniform_int_distribution(int, int) [14]
+                0.02    0.00       1/1           std::uniform_int_distribution<int>::param_type::param_type(int, int) [13]
 -----------------------------------------------
                 0.01    0.00       1/1           main [1]
-[11]     0.4    0.01    0.00       1         BTree::~BTree() [11]
-                0.00    0.00       1/1           BTree::ClearTree(TNode*&) [29]
+[15]     0.1    0.01    0.00       1         std::random_device::~random_device() [15]
 -----------------------------------------------
-                0.00    0.00 18000000/18000000     int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_int_distribution<int>::param_type const&) [7]
-[18]     0.0    0.00    0.00 18000000         std::uniform_int_distribution<int>::param_type::b() const [18]
+                0.00    0.00   10001/10001       TBtree::Insert_(TNode*&, long) [5]
+[22]     0.0    0.00    0.00   10001         TNode::TNode() [22]
 -----------------------------------------------
-                0.00    0.00   10001/10001       BTree::_insert(TNode*&, long) [5]
-[19]     0.0    0.00    0.00   10001         TNode::TNode() [19]
+                0.00    0.00     624/624         unsigned long std::__detail::__mod<unsigned long, 4294967296ul, 1ul, 0ul>(unsigned long) [24]
+[23]     0.0    0.00    0.00     624         std::__detail::_Mod<unsigned long, 4294967296ul, 1ul, 0ul, true, true>::__calc(unsigned long) [23]
 -----------------------------------------------
-                0.00    0.00     624/624         unsigned long std::__detail::__mod<unsigned long, 4294967296ul, 1ul, 0ul>(unsigned long) [21]
-[20]     0.0    0.00    0.00     624         std::__detail::_Mod<unsigned long, 4294967296ul, 1ul, 0ul, true, true>::__calc(unsigned long) [20]
+                0.00    0.00     624/624         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long) [36]
+[24]     0.0    0.00    0.00     624         unsigned long std::__detail::__mod<unsigned long, 4294967296ul, 1ul, 0ul>(unsigned long) [24]
+                0.00    0.00     624/624         std::__detail::_Mod<unsigned long, 4294967296ul, 1ul, 0ul, true, true>::__calc(unsigned long) [23]
 -----------------------------------------------
-                0.00    0.00     624/624         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long) [34]
-[21]     0.0    0.00    0.00     624         unsigned long std::__detail::__mod<unsigned long, 4294967296ul, 1ul, 0ul>(unsigned long) [21]
-                0.00    0.00     624/624         std::__detail::_Mod<unsigned long, 4294967296ul, 1ul, 0ul, true, true>::__calc(unsigned long) [20]
+                0.00    0.00     623/623         unsigned long std::__detail::__mod<unsigned long, 624ul, 1ul, 0ul>(unsigned long) [26]
+[25]     0.0    0.00    0.00     623         std::__detail::_Mod<unsigned long, 624ul, 1ul, 0ul, true, true>::__calc(unsigned long) [25]
 -----------------------------------------------
-                0.00    0.00     623/623         unsigned long std::__detail::__mod<unsigned long, 624ul, 1ul, 0ul>(unsigned long) [23]
-[22]     0.0    0.00    0.00     623         std::__detail::_Mod<unsigned long, 624ul, 1ul, 0ul, true, true>::__calc(unsigned long) [22]
+                0.00    0.00     623/623         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long) [36]
+[26]     0.0    0.00    0.00     623         unsigned long std::__detail::__mod<unsigned long, 624ul, 1ul, 0ul>(unsigned long) [26]
+                0.00    0.00     623/623         std::__detail::_Mod<unsigned long, 624ul, 1ul, 0ul, true, true>::__calc(unsigned long) [25]
 -----------------------------------------------
-                0.00    0.00     623/623         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long) [34]
-[23]     0.0    0.00    0.00     623         unsigned long std::__detail::__mod<unsigned long, 624ul, 1ul, 0ul>(unsigned long) [23]
-                0.00    0.00     623/623         std::__detail::_Mod<unsigned long, 624ul, 1ul, 0ul, true, true>::__calc(unsigned long) [22]
+                0.00    0.00       9/9           TBtree::ClearTree(TNode*&) [32]
+[27]     0.0    0.00    0.00       9         TNode::~TNode() [27]
 -----------------------------------------------
-                0.00    0.00      19/19          BTree::ClearTree(TNode*&) [29]
-[24]     0.0    0.00    0.00      19         TNode::~TNode() [24]
+                0.00    0.00       1/1           __libc_csu_init [43]
+[28]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN5TNodeC2Ev [28]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [31]
 -----------------------------------------------
-                0.00    0.00       1/1           __libc_csu_init [46]
-[25]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN5TNodeC2Ev [25]
-                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [28]
+                0.00    0.00       1/1           __libc_csu_init [43]
+[29]     0.0    0.00    0.00       1         _GLOBAL__sub_I_main [29]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [30]
 -----------------------------------------------
-                0.00    0.00       1/1           __libc_csu_init [46]
-[26]     0.0    0.00    0.00       1         _GLOBAL__sub_I_main [26]
-                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [27]
+                0.00    0.00       1/1           _GLOBAL__sub_I_main [29]
+[30]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [30]
 -----------------------------------------------
-                0.00    0.00       1/1           _GLOBAL__sub_I_main [26]
-[27]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [27]
+                0.00    0.00       1/1           _GLOBAL__sub_I__ZN5TNodeC2Ev [28]
+[31]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [31]
 -----------------------------------------------
-                0.00    0.00       1/1           _GLOBAL__sub_I__ZN5TNodeC2Ev [25]
-[28]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [28]
------------------------------------------------
-                                  18             BTree::ClearTree(TNode*&) [29]
-                0.00    0.00       1/1           BTree::~BTree() [11]
-[29]     0.0    0.00    0.00       1+18      BTree::ClearTree(TNode*&) [29]
-                0.00    0.00      19/19          TNode::~TNode() [24]
-                                  18             BTree::ClearTree(TNode*&) [29]
+                                   8             TBtree::ClearTree(TNode*&) [32]
+                0.00    0.00       1/1           TBtree::~TBtree() [34]
+[32]     0.0    0.00    0.00       1+8       TBtree::ClearTree(TNode*&) [32]
+                0.00    0.00       9/9           TNode::~TNode() [27]
+                                   8             TBtree::ClearTree(TNode*&) [32]
 -----------------------------------------------
                 0.00    0.00       1/1           main [1]
-[30]     0.0    0.00    0.00       1         BTree::BTree() [30]
+[33]     0.0    0.00    0.00       1         TBtree::TBtree() [33]
 -----------------------------------------------
                 0.00    0.00       1/1           main [1]
-[31]     0.0    0.00    0.00       1         std::random_device::random_device(std::string const&) [31]
+[34]     0.0    0.00    0.00       1         TBtree::~TBtree() [34]
+                0.00    0.00       1/1           TBtree::ClearTree(TNode*&) [32]
 -----------------------------------------------
                 0.00    0.00       1/1           main [1]
-[32]     0.0    0.00    0.00       1         std::random_device::~random_device() [32]
+[35]     0.0    0.00    0.00       1         std::random_device::random_device(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [35]
+-----------------------------------------------
+                0.00    0.00       1/1           std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::mersenne_twister_engine(unsigned long) [37]
+[36]     0.0    0.00    0.00       1         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long) [36]
+                0.00    0.00     624/624         unsigned long std::__detail::__mod<unsigned long, 4294967296ul, 1ul, 0ul>(unsigned long) [24]
+                0.00    0.00     623/623         unsigned long std::__detail::__mod<unsigned long, 624ul, 1ul, 0ul>(unsigned long) [26]
 -----------------------------------------------
                 0.00    0.00       1/1           main [1]
-[33]     0.0    0.00    0.00       1         std::random_device::operator()() [33]
------------------------------------------------
-                0.00    0.00       1/1           std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::mersenne_twister_engine(unsigned long) [35]
-[34]     0.0    0.00    0.00       1         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long) [34]
-                0.00    0.00     624/624         unsigned long std::__detail::__mod<unsigned long, 4294967296ul, 1ul, 0ul>(unsigned long) [21]
-                0.00    0.00     623/623         unsigned long std::__detail::__mod<unsigned long, 624ul, 1ul, 0ul>(unsigned long) [23]
------------------------------------------------
-                0.00    0.00       1/1           main [1]
-[35]     0.0    0.00    0.00       1         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::mersenne_twister_engine(unsigned long) [35]
-                0.00    0.00       1/1           std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long) [34]
------------------------------------------------
-                0.00    0.00       1/1           std::uniform_int_distribution<int>::uniform_int_distribution(int, int) [37]
-[36]     0.0    0.00    0.00       1         std::uniform_int_distribution<int>::param_type::param_type(int, int) [36]
------------------------------------------------
-                0.00    0.00       1/1           main [1]
-[37]     0.0    0.00    0.00       1         std::uniform_int_distribution<int>::uniform_int_distribution(int, int) [37]
-                0.00    0.00       1/1           std::uniform_int_distribution<int>::param_type::param_type(int, int) [36]
+[37]     0.0    0.00    0.00       1         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::mersenne_twister_engine(unsigned long) [37]
+                0.00    0.00       1/1           std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long) [36]
 -----------------------------------------------
 
 Index by function name
 
-  [25] _GLOBAL__sub_I__ZN5TNodeC2Ev [19] TNode::TNode()   [36] std::uniform_int_distribution<int>::param_type::param_type(int, int)
-  [26] _GLOBAL__sub_I_main    [24] TNode::~TNode()        [37] std::uniform_int_distribution<int>::uniform_int_distribution(int, int)
-  [27] __static_initialization_and_destruction_0(int, int) [10] std::uniform_int_distribution<int>::param_type::a() const [6] int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&)
-  [28] __static_initialization_and_destruction_0(int, int) [18] std::uniform_int_distribution<int>::param_type::b() const [7] int std::uniform_int_distribution<int>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_int_distribution<int>::param_type const&)
-   [3] BTree::Find(long)      [31] std::random_device::random_device(std::string const&) [20] std::__detail::_Mod<unsigned long, 4294967296ul, 1ul, 0ul, true, true>::__calc(unsigned long)
-   [4] BTree::_find(TNode*&, long) [32] std::random_device::~random_device() [22] std::__detail::_Mod<unsigned long, 624ul, 1ul, 0ul, true, true>::__calc(unsigned long)
-   [2] BTree::Insert(long)    [33] std::random_device::operator()() [21] unsigned long std::__detail::__mod<unsigned long, 4294967296ul, 1ul, 0ul>(unsigned long)
-   [5] BTree::_insert(TNode*&, long) [9] std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::_M_gen_rand() [23] unsigned long std::__detail::__mod<unsigned long, 624ul, 1ul, 0ul>(unsigned long)
-  [29] BTree::ClearTree(TNode*&) [34] std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long) [1] main
-  [30] BTree::BTree()         [35] std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::mersenne_twister_engine(unsigned long)
-  [11] BTree::~BTree()         [8] std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::operator()()
+  [28] _GLOBAL__sub_I__ZN5TNodeC2Ev [5] TBtree::Insert_(TNode*&, long) [13] std::uniform_int_distribution<int>::param_type::param_type(int, int)
+  [29] _GLOBAL__sub_I_main    [32] TBtree::ClearTree(TNode*&) [14] std::uniform_int_distribution<int>::uniform_int_distribution(int, int)
+  [30] __static_initialization_and_destruction_0(int, int) [33] TBtree::TBtree() [7] int std::uniform_int_distribution<int>::operator()<std::random_device>(std::random_device&)
+  [31] __static_initialization_and_destruction_0(int, int) [34] TBtree::~TBtree() [8] int std::uniform_int_distribution<int>::operator()<std::random_device>(std::random_device&, std::uniform_int_distribution<int>::param_type const&)
+   [6] TNode::GetVal()        [12] std::uniform_int_distribution<int>::param_type::a() const [23] std::__detail::_Mod<unsigned long, 4294967296ul, 1ul, 0ul, true, true>::__calc(unsigned long)
+   [9] TNode::SetVal(long)    [11] std::uniform_int_distribution<int>::param_type::b() const [25] std::__detail::_Mod<unsigned long, 624ul, 1ul, 0ul, true, true>::__calc(unsigned long)
+  [22] TNode::TNode()         [35] std::random_device::random_device(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [24] unsigned long std::__detail::__mod<unsigned long, 4294967296ul, 1ul, 0ul>(unsigned long)
+  [27] TNode::~TNode()        [15] std::random_device::~random_device() [26] unsigned long std::__detail::__mod<unsigned long, 624ul, 1ul, 0ul>(unsigned long)
+   [2] TBtree::Find(long)     [10] std::random_device::operator()() [1] main
+   [3] TBtree::Find_(TNode*&, long) [36] std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long)
+   [4] TBtree::Insert(long)   [37] std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::mersenne_twister_engine(unsigned long)

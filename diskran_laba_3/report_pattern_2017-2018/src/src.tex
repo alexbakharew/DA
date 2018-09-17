@@ -1,0 +1,179 @@
+\section{Описание}
+Для выполнения данной лабораторной работы я решил реализовать класс бинарного дерева. Я не стал использовать AVL-дерево из прошлой лабораторной работы, потому что она не совсем хорошо написана -- есть много недочетов при планировании и реализации класса. Все помарки я учел и решил закрепить результат, написав бинарное дерево. Для профилирования моей программы я выбрал 2 инструмента -- gprof и valgrind.
+
+gprof -- Помогает отслеживать время работы каждой функции. Есть 2 способа наблюдения: таблица и граф вызовов. Таблица сообщает, какое количество времени в процентах работала та или иная функция, а так же показывает число ее вызовов. Граф вызовов показывает, какая функция из какой вызывалась. Таким образом, мы можем отследить самые долгоработающие участки программы и решить, стоит ли их переписывать для ускорения работы нашего приложения.
+
+valgrind -- Отслеживание утечек памяти в программе. Часто бывают случаи, когда некоторый участок памяти выделен, но не освобожден. Если мы работаем над небольшим проектом, то утечка памяти не так уж и страшна, ведь операционная система сама почистит память при завершении работы программы. Но если мы пишем только какую-то часть приложения, то тут могут быть различные проблемы с непредвиденным расходом памяти, что негативно сказывается на быстродействии. Так же, при неправильной работе с указателями, возможна ситуация, когда мы обращаемся к невыделенному участку памяти для нашей программы. Скорее всего, программа успешно скомпилируется и даже будет работать на некоторых ЭВМ, но для других возможны критические ошибки. Данная утилита помогает сократить расходы памяти, выявить потери данных и нарушения прав доступа к участкам памяти.
+
+\pagebreak
+
+\section{Исходный код}
+Ниже приведен отлаженный и рабочий код бинарного дерева.
+
+\textbf{btree.h}
+\begin{lstlisting}[language=C]
+class TNode
+{
+public:
+    TNode();
+    ~TNode();
+    long GetVal();
+    void SetVal(long val);
+ private:
+     TNode* Left;
+     TNode* Right;
+     long Value;
+
+friend class TBtree;
+};
+
+class TBtree
+{
+public:
+    TBtree();
+    ~TBtree();
+    bool Insert(long value);
+    bool Remove(long value);
+    TNode* Find(long value);
+private:
+    void ClearTree(TNode*& nd);
+    bool Insert_(TNode*& nd, long val);
+    bool Remove_(TNode*& nd, long val);
+    TNode* Find_(TNode*& nd, long val);
+    TNode* Root;
+};
+\end{lstlisting}
+\textbf{btree.cpp}
+\begin{lstlisting}[language=C]
+#include <iostream>
+#include <cstdlib>
+#include "bin_tree.h"
+TNode::TNode(){}
+TNode::~TNode(){}
+void TNode::SetVal(long val)
+{
+    Value = val;
+}
+long TNode::GetVal()
+{
+    return Value;
+}
+TBtree::TBtree()
+{
+    Root = nullptr;
+}
+void TBtree::ClearTree(TNode*& nd)
+{
+    if(nd == nullptr)
+        return;
+    if(nd->Left != nullptr)
+        ClearTree(nd->Left);
+    else if(nd->Right != nullptr)
+        ClearTree(nd->Right);
+    delete nd;
+    nd = nullptr;
+    return;
+}
+
+TBtree::~TBtree()
+{
+    ClearTree(Root);
+}
+bool TBtree::Insert(long val)
+{
+    if(Insert_(Root, val))
+        return true;
+    else return false;
+}
+TNode* TBtree::Find(long val)
+{
+    return Find_(Root, val);
+}
+TNode* TBtree::Find_(TNode*& nd, long val)
+{
+    if(nd == nullptr)
+        return nullptr;
+    if(nd->Value > val)
+        Find_(nd->Left, val);
+    else if(nd->Value < val)
+        Find_(nd->Right, val);
+    else return nd;
+}
+bool TBtree::Insert_(TNode*& nd, long val)
+{
+    if(nd == nullptr)
+    {
+        nd = new TNode;
+        if(nd == nullptr)
+            return false; // Not enough memory
+        nd->Left = nd->Right = nullptr;
+        nd->Value = val;
+        return true;
+    }
+    else if(nd->Value > val)
+        return Insert_(nd->Left, val);
+    else if(nd->Value < val)
+        return Insert_(nd->Right, val);
+    return false; // item already added
+}
+\end{lstlisting}
+\textbf{main.cpp}
+\begin{lstlisting}[language=C]
+#include <iostream>
+#include <cstdlib>
+#include <random>
+#include "bin_tree.h"
+int main()
+{
+    TBtree tree;
+    std::random_device rd;  //Will be used to obtain a seed for the random number engine
+    std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+    std::uniform_int_distribution<> dis(-5000, 5000);
+    for(int i = 0; i < 10000000; ++i)
+        tree.Insert(dis(rd));
+    for(int i = 0; i < 10000000; ++i)
+        tree.Find(dis(rd)); 
+    return 0;
+}
+\end{lstlisting}
+\pagebreak
+
+Исследуем данную программу на быстродействие и утечки памяти при помощи утилит valgrind и gprof
+\textbf{•}
+\begin{alltt}
+alex$make
+g++ -std=c++11 -pg -pedantic -Wall main.cpp bin_tree.cpp
+alex$./a.out < 01.t
+alex$gprof -D -b -a ./a.out gmon.out
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 47.27      1.61     1.61 10000000     0.00     0.00  TBtree::Find_(TNode*&, long)
+ 40.77      2.99     1.39 10000001     0.00     0.00  TBtree::Insert_(TNode*&, long)
+  6.50      3.21     0.22        1     0.22     3.42  main
+  3.25      3.32     0.11 10000000     0.00     0.00  TBtree::Find(long)
+  2.36      3.41     0.08 10000000     0.00     0.00  TBtree::Insert(long)
+  0.30      3.42     0.01        1     0.01     0.01  TBtree::~TBtree()
+  0.00      3.42     0.00    20001     0.00     0.00  TNode::TNode()
+  0.00      3.42     0.00        9     0.00     0.00  TNode::~TNode()
+  0.00      3.42     0.00        1     0.00     0.00  TBtree::ClearTree(TNode*&)
+  0.00      3.42     0.00        1     0.00     0.00  TBtree::TBtree()
+\end{alltt}
+\section{Консоль}
+\begin{alltt}
+a.kukhticev$ gcc -pedantic -Wall -std=c99 -Werror -Wno-sign-compare -lm da10.c -o da10 --some_long_argument=true
+a.kukhticev$ cat test1 
+87	a
+13	b
+89	c
+13	d
+a.kukhticev$ ./da10 < test1 
+13	b
+13	d
+87	a
+89	c
+\end{alltt}
+\pagebreak
+

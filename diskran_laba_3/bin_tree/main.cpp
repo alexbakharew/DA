@@ -1,20 +1,24 @@
 #include <iostream>
 #include <cstdlib>
-#include <random>
 #include "bin_tree.h"
 int main()
 {
-    BTree tree;
-    std::random_device rd;  //Will be used to obtain a seed for the random number engine
-    std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
-    std::uniform_int_distribution<> dis(-5000, 5000);
-    for(int i = 0; i < 9000000; ++i)
+    TBtree tree;
+    long val;
+    FILE* fd = fopen("01.t", "r");
+
+    for(int i = 0; i < 10000000; ++i)
     {
-        tree.Insert(dis(gen));
+        std::
+        std::cin>>val;
+        tree.Insert(val);
     }
-    for(int i = 0; i < 9000000; ++i)
+    std::cout<<"OK\n";
+    for(int i = 0; i < 10000000; ++i)
     {
-        tree.Find(dis(gen));
-    }
+        std::cin>>val;
+        tree.Find(val);
+    } 
+    std::cout<<"OK\n";    
     return 0;
 }

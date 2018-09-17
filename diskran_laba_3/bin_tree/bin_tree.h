@@ -12,22 +12,22 @@ public:
      TNode* Right;
      long Value;
 
-friend class BTree;
+friend class TBtree;
 };
 
-class BTree
+class TBtree
 {
 public:
-    BTree();
-    ~BTree();
+    TBtree();
+    ~TBtree();
     bool Insert(long value);
     bool Remove(long value);
     TNode* Find(long value);
 private:
     void ClearTree(TNode*& nd);
-    bool _insert(TNode*& nd, long val);
-    bool _remove(TNode*& nd, long val);
-    TNode* _find(TNode*& nd, long val);
+    bool Insert_(TNode*& nd, long val);
+    bool Remove_(TNode*& nd, long val);
+    TNode* Find_(TNode*& nd, long val);
     TNode* Root;
 };
 #endif

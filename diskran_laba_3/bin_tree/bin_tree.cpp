@@ -11,11 +11,11 @@ long TNode::GetVal()
 {
     return Value;
 }
-BTree::BTree()
+TBtree::TBtree()
 {
     Root = nullptr;
 }
-void BTree::ClearTree(TNode*& nd)
+void TBtree::ClearTree(TNode*& nd)
 {
     if(nd == nullptr)
         return;
@@ -28,31 +28,31 @@ void BTree::ClearTree(TNode*& nd)
     return;
 }
 
-BTree::~BTree()
+TBtree::~TBtree()
 {
     ClearTree(Root);
 }
-bool BTree::Insert(long val)
+bool TBtree::Insert(long val)
 {
-    if(_insert(Root, val))
+    if(Insert_(Root, val))
         return true;
     else return false;
 }
-TNode* BTree::Find(long val)
+TNode* TBtree::Find(long val)
 {
-    return _find(Root, val);
+    return Find_(Root, val);
 }
-TNode* BTree::_find(TNode*& nd, long val)
+TNode* TBtree::Find_(TNode*& nd, long val)
 {
     if(nd == nullptr)
         return nullptr;
     if(nd->Value > val)
-        _find(nd->Left, val);
+        Find_(nd->Left, val);
     else if(nd->Value < val)
-        _find(nd->Right, val);
+        Find_(nd->Right, val);
     else return nd;
 }
-bool BTree::_insert(TNode*& nd, long val)
+bool TBtree::Insert_(TNode*& nd, long val)
 {
     if(nd == nullptr)
     {
@@ -64,14 +64,9 @@ bool BTree::_insert(TNode*& nd, long val)
         return true;
     }
     else if(nd->Value > val)
-        return _insert(nd->Left, val);
-
+        return Insert_(nd->Left, val);
     else if(nd->Value < val)
-        return _insert(nd->Right, val);
+        return Insert_(nd->Right, val);
     return false; // item already added
-}
-bool BTree::Remove(long val)
-{
-
 }
 
