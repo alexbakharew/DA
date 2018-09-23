@@ -2,32 +2,30 @@ import sys
 import random
 import time
 
-random.seed()
-outputFile = open("01.a", "w")
-inputtFile = open("01.t", "w")
+
+inputtFile = open("1t.txt", "w")
 
 pattern = str()
-text = str()
 
-pattern = str(random.randint(0, 100))# + " " + str(random.randint(0, 100))
+
+random.seed()
+pattern = str(random.randrange(10)) + " " + str(random.randrange(10))
 inputtFile.write(pattern + "\n")
 
-maxLine = random.randint(15, 20)
+random.seed()
+Lines = int(1000)
 
-for line in range(1, maxLine):
-    
-    #time.sleep(1)
-    #random.seed()
-    
-    maxWords = random.randint(15, 20)
-    for i in range(1, maxWords):
-        text += str(random.randint(0, 100)) + " "
+for line in range(Lines):
+    Words = int(50)
+    text = str()
+    for i in range(Words):
+        random.seed()
+        text += str(random.randrange(10)) + " " + str(random.randrange(10)) + " " + str(random.randrange(10)) + " " + str(random.randrange(10))
     inputtFile.write(text + "\n")    
-    tmpList = text.split()
-    for i in range(0, len(tmpList)):
-        if tmpList[i] == pattern:
-            outputFile.write(str(line) + ", " + str(i + 1) + "\n")
-inputtFile.write("\n")
+#     tmpList = text.split()
+#     for i in range(line, len(tmpList)):
+#         if tmpList[i] == pattern:
+#             outputFile.write(str(line) + ", " + str(i + 1) + "\n")
+# inputtFile.write("\n")
 
 inputtFile.close()
-outputFile.close()

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.24)  19 SEP 2018 11:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.24)  23 SEP 2018 10:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -984,195 +984,244 @@ Package babel Info: Redefining russian shorthand "~
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./src/problem.tex
-Overfull \hbox (0.60988pt too wide) in paragraph at lines 4--5
-\T2B/cmr/m/n/12 каж-до-му клю-чу, пред-став-ля-ю-ще-му из се-бя ре-ги-стро-не-з
-а-ви-си-мую по-сле-до-ва-тель-ность
+Overfull \hbox (1.77759pt too wide) in paragraph at lines 6--7
+[]\T2B/cmr/bx/n/12 Вариант ал-го-рит-ма: \T2B/cmr/m/n/12 По-иск од-но-го об-раз
+-ца при по-мо-щи ал-го-рит-ма Кнута-Морриса-
  []
 
-LaTeX Font Info:    Try loading font information for T2B+cmtt on input line 20.
-
+LaTeX Font Info:    Try loading font information for T2B+cmtt on input line 8.
 (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2bcmtt.fd
 File: t2bcmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-))
+)
+Overfull \hbox (13.50258pt too wide) in paragraph at lines 10--12
+[]\T2B/cmr/bx/n/12 Формат вход-ных дан-ных:  \T2B/cmtt/m/n/12 Искомый образец з
+адается на первой строке входного
+ []
+
+
+Overfull \hbox (13.94135pt too wide) in paragraph at lines 13--14
+[]\T2B/cmtt/m/n/12 В случае, если в задании требуется найти несколько образцов,
+ они задаются по
+ []
+
+
+Overfull \hbox (38.63531pt too wide) in paragraph at lines 15--16
+[]\T2B/cmtt/m/n/12 Затем следует текст, состоящий из слов или чисел, в котором 
+нужно найти заданные
+ []
+
+
+Overfull \hbox (7.76785pt too wide) in paragraph at lines 17--18
+[]\T2B/cmtt/m/n/12 Никаких ограничений на длину строк, равно как на количество 
+слов или числ в
+ []
+
+
+Overfull \hbox (4.72972pt too wide) in paragraph at lines 19--21
+[]\T2B/cmr/bx/n/12 Формат вы-ход-ных дан-ных:  \T2B/cmtt/m/n/12 В выходной файл
+ нужно вывести информацию о всех
+ []
+
+
+Overfull \hbox (1.59436pt too wide) in paragraph at lines 19--21
+\T2B/cmtt/m/n/12 вхождениях искомых образцов в обрабатываемый текст: по одному 
+вхождению на
+ []
+
+
+Overfull \hbox (7.76785pt too wide) in paragraph at lines 22--23
+[]\T2B/cmtt/m/n/12 Для заданий, в которых требуется найти только один образец, 
+следует вывести
+ []
+
+
+Overfull \hbox (57.15579pt too wide) in paragraph at lines 22--23
+\T2B/cmtt/m/n/12 два числа через запятую: номер строки и номер слова в строке, 
+с которого начинается
+ []
+
+
+Overfull \hbox (44.8088pt too wide) in paragraph at lines 22--23
+\T2B/cmtt/m/n/12 найденный образец. В заданиях с большим количеством образцов, 
+на каждое вхождение
+ []
+
+
+Overfull \hbox (1.59436pt too wide) in paragraph at lines 22--23
+\T2B/cmtt/m/n/12 нужно вывести три числа через запятую: номер строки; номер сло
+ва в строке,
+ []
+
+
+Overfull \hbox (1.59436pt too wide) in paragraph at lines 24--25
+[]\T2B/cmtt/m/n/12 Нумерация начинается с единицы. Номер строки в тексте должен
+ отсчитываться
+ []
+
+) (./src/src.tex
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 35.
+(babel)             in language append on input line 1.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 35.
+(babel)             in language append on input line 1.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 35.
+(babel)             in language append on input line 1.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 35.
+(babel)             in language append on input line 1.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.35 \input
-           {src/src} [1] (./src/src.tex
+l.1 \section
+            {РћРїРёСЃР°РЅРёРµ} [1]
 Package babel Info: Redefining russian shorthand "|
 (babel)             in language append on input line 1.
 Package babel Info: Redefining russian shorthand "~
 (babel)             in language append on input line 1.
-Package csquotes Info: Input encoding change on input line 6.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language append on input line 15.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language append on input line 15.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language append on input line 15.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language append on input line 15.
+ [2]
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language append on input line 16.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language append on input line 16.
+Package csquotes Info: Input encoding change on input line 19.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2015/12/03 v1.1r UTF-8 support for inputenc
 )
 LaTeX Font Info:    Font shape `T2B/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T2B/cmtt/m/n' tried instead on input line 7.
+(Font)              Font shape `T2B/cmtt/m/n' tried instead on input line 20.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 32.
+(babel)             in language append on input line 67.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 32.
+(babel)             in language append on input line 67.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 32.
+(babel)             in language append on input line 67.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 32.
- [2]
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 77.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 77.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 77.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 77.
+(babel)             in language append on input line 67.
  [3]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 78.
+(babel)             in language append on input line 116.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 78.
-
-Underfull \hbox (badness 10000) in paragraph at lines 122--122
-[]|\T2B/cmr/m/n/12 void RecountBalanceInsert(TNode$\OMS/cmsy/m/n/12 ^^C$\T2B/cm
-r/m/n/12 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 124--124
-[]|\T2B/cmr/m/n/12 void RecountBalanceDelete(TNode$\OMS/cmsy/m/n/12 ^^C$\T2B/cm
-r/m/n/12 ,
- []
-
-
-Underfull \vbox (badness 10000) detected at line 127
- []
-
+(babel)             in language append on input line 116.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 128.
+(babel)             in language append on input line 116.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 128.
+(babel)             in language append on input line 116.
+ [4]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 128.
+(babel)             in language append on input line 164.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 128.
-[4]
-Package csquotes Info: Input encoding change on input line 130.
- (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2015/12/03 v1.1r UTF-8 support for inputenc
-)
+(babel)             in language append on input line 164.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 165.
+(babel)             in language append on input line 164.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 165.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 165.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 165.
+(babel)             in language append on input line 164.
  [5]
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 174.
+(babel)             in language append on input line 165.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 174.
+(babel)             in language append on input line 165.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 174.
+(babel)             in language append on input line 190.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 174.
- [6]
+(babel)             in language append on input line 190.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 175.
+(babel)             in language append on input line 190.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 175.
-
-Overfull \hbox (1.59436pt too wide) in paragraph at lines 178--178
-[]\T2B/cmtt/m/n/12 g++ -std=c++11 -o diskran_laba_2 -pedantic -Wall -Werror -Wn
-o-sign-compare
- []
-
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 204.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 204.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 204.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 204.
-[7]) (./src/banchmark.tex
+(babel)             in language append on input line 190.
+ [6])
+(./src/banchmark.tex
 Package babel Info: Redefining russian shorthand "|
 (babel)             in language append on input line 1.
 Package babel Info: Redefining russian shorthand "~
 (babel)             in language append on input line 1.
 Package csquotes Info: Input encoding change on input line 5.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+ (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2015/12/03 v1.1r UTF-8 support for inputenc
 )
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 50.
+(babel)             in language append on input line 48.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 50.
+(babel)             in language append on input line 48.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 50.
+(babel)             in language append on input line 48.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 50.
- [8]
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-Package csquotes Info: Input encoding change on input line 81.
+(babel)             in language append on input line 48.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2015/12/03 v1.1r UTF-8 support for inputenc
-)
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 100.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 100.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 100.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 100.
- [9]
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-Package csquotes Info: Input encoding change on input line 134.
+[7]
+Overfull \hbox (7.76785pt too wide) in paragraph at lines 51--51
+[]\T2B/cmtt/m/n/12 55 82 56 69100 82 95 8868 73 81 5654 77 69 9755 85 69 5382 6
+7 79 6388 78 84
+ []
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2015/12/03 v1.1r UTF-8 support for inputenc
-)
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 144.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 144.
-Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 144.
-Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 144.
- [10]
-Overfull \hbox (1.59436pt too wide) in paragraph at lines 147--147
-[]\T2B/cmtt/m/n/12 g++ -std=c++11 -o diskran_laba_2 -pedantic -Wall -Werror -Wn
-o-sign-compare
+
+Overfull \hbox (13.94135pt too wide) in paragraph at lines 51--51
+\T2B/cmtt/m/n/12 7165 55 54 9077 65 57 5390 82 94 8093 71 92 6066 58 96 5451 66
+ 64 8476 54 58
+ []
+
+
+Overfull \hbox (1.59436pt too wide) in paragraph at lines 51--51
+\T2B/cmtt/m/n/12 8060 67 80 6256 85 100 5579 61 83 5152 93 94 7774 79 98 5454 8
+2 55 6970 51
+ []
+
+
+Overfull \hbox (1.59436pt too wide) in paragraph at lines 51--51
+\T2B/cmtt/m/n/12 58 9089 99 95 69100 92 76 5069 55 93 6552 74 51 9890 79 88 786
+2 96 75 6562
+ []
+
+
+Overfull \hbox (13.94135pt too wide) in paragraph at lines 51--51
+\T2B/cmtt/m/n/12 88 58 7780 86 94 8065 75 60 9381 80 67 9851 94 56 8487 55 66 9
+371 80 61 6497
+ []
+
+
+Overfull \hbox (20.11484pt too wide) in paragraph at lines 51--51
+\T2B/cmtt/m/n/12 92 83 9190 81 92 69100 91 65 7182 62 90 6979 97 87 7196 73 61 
+5582 74 86 7461
+ []
+
+
+Overfull \hbox (26.28833pt too wide) in paragraph at lines 51--51
+\T2B/cmtt/m/n/12 82 54 6750 71 52 7983 75 52 7261 58 71 10055 58 54 93100 78 52
+ 6581 96 66 9957
+ []
+
+
+Overfull \hbox (20.11484pt too wide) in paragraph at lines 51--51
+\T2B/cmtt/m/n/12 63 56 5761 98 53 8757 100 91 9872 61 86 8488 90 58 6087 87 63 
+8970 85 78 5364
+ []
+
+
+Overfull \hbox (20.11484pt too wide) in paragraph at lines 51--51
+\T2B/cmtt/m/n/12 60 81 10057 88 85 6173 55 71 5776 72 91 7886 86 55 8852 52 79 
+9272 76 92 6961
+ []
+
+
+Overfull \hbox (13.94135pt too wide) in paragraph at lines 51--51
+\T2B/cmtt/m/n/12 71 85 5454 84 56 9195 77 79 5360 74 95 7684 71 86 9282 66 77 5
+156 83 75 8883
+ []
+
+
+Overfull \hbox (57.15579pt too wide) in paragraph at lines 53--53
+[]\T2B/cmtt/m/n/12 g++ -o da_4 -pg -std=c++11 -pedantic -Wall -Werror -Wno-sign
+-compare -Wno-long-long
  []
 
 ) (./src/thinks.tex
-Overfull \hbox (8.65523pt too wide) in paragraph at lines 160--1
-\T2B/cmr/m/n/12 Как вид-но из те-ста про-из-во-ди-тель-но-сти, AVL-дерево вы-иг
--ры-ва-ет по вре-ме-ни у std::map
- []
-
 Package babel Info: Redefining russian shorthand "|
 (babel)             in language append on input line 1.
 Package babel Info: Redefining russian shorthand "~
@@ -1181,16 +1230,11 @@ Package babel Info: Redefining russian shorthand "|
 (babel)             in language append on input line 1.
 Package babel Info: Redefining russian shorthand "~
 (babel)             in language append on input line 1.
-[11]
+ [8]
 Package babel Info: Redefining russian shorthand "|
 (babel)             in language append on input line 1.
 Package babel Info: Redefining russian shorthand "~
 (babel)             in language append on input line 1.
-
-
-LaTeX Warning: Command \textnumero invalid in math mode on input line 2.
-
-Missing character: There is no ќ in font cmr12!
 ) (./src/literature.tex
 Package babel Info: Redefining russian shorthand "|
 (babel)             in language append on input line 1.
@@ -1200,56 +1244,53 @@ Package babel Info: Redefining russian shorthand "|
 (babel)             in language append on input line 1.
 Package babel Info: Redefining russian shorthand "~
 (babel)             in language append on input line 1.
- [12]
-Underfull \hbox (badness 10000) in paragraph at lines 6--7
-\T2B/cmr/m/n/12 URL: \T2B/cmtt/m/n/12 https://ru.wikipedia.org/wiki/АВЛ-дерево 
-\T2B/cmr/m/n/12 (да-та об-ра-ще-ния:
+ [9]
+Underfull \hbox (badness 10000) in paragraph at lines 10--12
+[]\T2B/cmr/m/it/12 Префикс-функция. Ал-го-ритм Кнута-Морриса-Пратта
  []
 
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 11.
+(babel)             in language append on input line 14.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 11.
+(babel)             in language append on input line 14.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language append on input line 11.
+(babel)             in language append on input line 14.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language append on input line 11.
-[13])
+(babel)             in language append on input line 14.
+[10])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 40.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 40.
  (./report.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 40.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 40.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 9A183B996B0FFEB4AC7072521C61038B;727.
+(rerunfilecheck)             Checksum: 5990932239A137F126BA32BBEBE763B8;663.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 40.
  ) 
 Here is how much of TeX's memory you used:
- 14327 strings out of 493029
- 191350 string characters out of 6136233
- 452693 words of memory out of 5000000
- 17461 multiletter control sequences out of 15000+600000
- 15346 words of font info for 43 fonts, out of 8000000 for 9000
+ 14023 strings out of 493029
+ 187436 string characters out of 6136233
+ 473693 words of memory out of 5000000
+ 17175 multiletter control sequences out of 15000+600000
+ 14531 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,7n,58p,1144b,2478s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,7n,58p,1146b,2392s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t2b.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbi12
-00.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/t
-exmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/pub
-lic/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfit100
-0.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/te
-xmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/publ
-ic/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000
-.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on report.pdf (14 pages, 316425 bytes).
+mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-supe
+r/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr
+/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/t
+ype1/public/cm-super/sfit1000.pfb></usr/share/texmf/fonts/type1/public/cm-super
+/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/
+share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/ty
+pe1/public/cm-super/sftt1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/
+sftt1200.pfb>
+Output written on report.pdf (11 pages, 271131 bytes).
 PDF statistics:
- 387 PDF objects out of 1000 (max. 8388607)
- 351 compressed objects within 4 object streams
- 209 named destinations out of 1000 (max. 500000)
+ 359 PDF objects out of 1000 (max. 8388607)
+ 329 compressed objects within 4 object streams
+ 204 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

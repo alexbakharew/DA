@@ -1,7 +1,10 @@
 #include <iostream>
 #include <cstdlib>
 #include "bin_tree.h"
-TNode::TNode(){}
+TNode::TNode()
+{
+    Left = Right = nullptr;
+}
 TNode::~TNode(){}
 void TNode::SetVal(long val)
 {
@@ -14,29 +17,32 @@ long TNode::GetVal()
 TBtree::TBtree()
 {
     Root = nullptr;
+    Size = 0;
+}
+TBtree::~TBtree()
+{
+    //std::cout<<Size<<std::endl;
+    ClearTree(Root);
+    //std::cout<<Size<<std::endl;
+}
+size_t TBtree::GetSize()
+{
+    return Size;
 }
 void TBtree::ClearTree(TNode*& nd)
 {
     if(nd == nullptr)
         return;
-    if(nd->Left != nullptr)
-        ClearTree(nd->Left);
-    else if(nd->Right != nullptr)
-        ClearTree(nd->Right);
+    ClearTree(nd->Left);
+    ClearTree(nd->Right);
     delete nd;
     nd = nullptr;
+    --Size;
     return;
-}
-
-TBtree::~TBtree()
-{
-    ClearTree(Root);
 }
 bool TBtree::Insert(long val)
 {
-    if(Insert_(Root, val))
-        return true;
-    else return false;
+    return Insert_(Root, val);
 }
 TNode* TBtree::Find(long val)
 {
@@ -59,14 +65,14 @@ bool TBtree::Insert_(TNode*& nd, long val)
         nd = new TNode;
         if(nd == nullptr)
             return false; // Not enough memory
-        nd->Left = nd->Right = nullptr;
         nd->Value = val;
+        ++Size;
         return true;
     }
     else if(nd->Value > val)
-        return Insert_(nd->Left, val);
+        Insert_(nd->Left, val);
     else if(nd->Value < val)
-        return Insert_(nd->Right, val);
-    return false; // item already added
+        Insert_(nd->Right, val);
+    else return false; // item already added
 }
 
