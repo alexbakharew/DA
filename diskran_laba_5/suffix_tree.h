@@ -3,7 +3,8 @@
 #include <vector>
 #include <string>
 #define MAX_LENGTH std::numeric_limits<std::size_t>::max()
-class TNode {
+class TNode 
+{
 public:
     using link = std::map<char, TNode *>;
     link edges;

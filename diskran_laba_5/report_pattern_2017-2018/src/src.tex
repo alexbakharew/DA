@@ -1,0 +1,118 @@
+\section{Описание}
+
+
+
+\pagebreak
+
+\section{Исходный код}
+suffix\_tree.h
+\begin{lstlisting}[language=C]
+#define MAX_LENGTH std::numeric_limits<std::size_t>::max()
+class TNode 
+{
+public:
+    using link = std::map<char, TNode *>;
+    link edges;
+    TNode *parent;
+    TNode *suffixLink;
+    std::size_t begin;
+    std::size_t length;
+    TNode(const std::string &, TNode * const &);
+    TNode(const std::vector<char> &, const char &);
+    TNode(const std::vector<char> &, const char &, TNode * const &);
+    TNode(const std::string &, TNode * const &, const std::size_t &);
+    virtual ~TNode();
+};
+class TSuffixTree;
+class TSuffixArray;
+class TSuffixArray
+{
+private:
+    std::string text;
+    std::vector<std::size_t> array;
+public:
+    explicit TSuffixArray(const TSuffixTree &);
+    std::vector<std::size_t> Find(const std::string &pattern) const;
+    virtual ~TSuffixArray();
+};
+class TSuffixTree
+{
+    std::string text;
+    TNode *root;
+    TNode *active_vertex;
+    std::size_t activeLength;
+    std::size_t activeCharIdx;
+    void DFS(TNode * const &, std::vector<std::size_t> &, const std::size_t &) const;
+    friend TSuffixArray::TSuffixArray(const TSuffixTree &);
+public:
+    explicit TSuffixTree(const std::vector<char> &, const char &);
+    void PushBack(const char &ch);
+    virtual ~TSuffixTree();
+};
+\end{lstlisting}
+\pagebreak
+\begin{longtable}{|p{7.5cm}|p{7.5cm}|}
+\hline
+\hline
+\rowcolor{lightgray}
+\multicolumn{2}{|c|} {suffix\_tree.cpp}\\
+
+\hline
+void TSuffixTree::PushBack(const char\& new\_ch)&Функция добавления символа в суффиксное дерево в режиме реального времени\\
+\hline
+void TSuffixTree::DFS(TNode\* const \&curr, std::vector<std::size\_t> \&result, const std::size\_t \&summary)&Преобразование суффиксного дерева в суффиксный массив при помощи алгоритма обхода в глубину.\\
+\hline
+std::vector<std::size\_t> TSuffixArray::Find(const std::string \&pattern)&Поиск подстроки в суффиксном массиве\\
+\hline
+\hline
+\rowcolor{lightgray}
+\multicolumn{2}{|c|} {file1.c}\\
+\hline
+void function\_name()&Функция, \enquote{которая почти всегда работает, но неясно, что она делает}.\\
+\hline
+\end{longtable}
+В этом случае структуры или классы должны быть полностью приведены в листинге (без реализации методов).
+\begin{lstlisting}[language=C]
+struct KV{
+	int key;
+	char value;
+} KV;
+\end{lstlisting}
+\pagebreak
+
+\section{Консоль}
+\begin{alltt}
+alex$make
+g++ suffix_tree.cpp main.cpp -std=c++11 -pedantic -Wall -Werror -Wno-sign-compare -Wno-long-long -lm -o diskran_laba_5
+alex$ cat 01.t 
+bbcabcbacdcabbdbabacbacaddaabcaaddacbccbdaacbdcaaddbabbddadabcbbbdadcaadacbaaada\\abbacbdddccbcabccdadabaccdacaddbbccd
+bbac
+bbca
+aabc
+dcab
+dadd
+dbab
+dbac
+bbba
+acbd
+bbba
+ccab
+bdad
+dadd
+bbca
+alex$ ./*5 < 01.t 
+1: 17
+3: 49
+4: 95
+5: 82
+6: 1
+7: 27
+8: 10
+10: 15, 51
+13: 43, 84
+16: 65
+18: 1
+alex$
+\end{alltt}
+\pagebreak
+

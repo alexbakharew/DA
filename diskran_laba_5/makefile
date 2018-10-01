@@ -1,18 +1,7 @@
 CC=g++
-CFLAGS=-c -std=c++14 -Werror -pedantic -Wall -Wextra -O2
-LDFLAGS=
-LIBS=-lm
+CFLAGS= -std=c++11 -pedantic -Wall -Werror -Wno-sign-compare -Wno-long-long -lm
 SOURCES=suffix_tree.cpp main.cpp
-OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=lab5
+EXECUTABLE=diskran_laba_5
 
-all: $(SOURCES) $(EXECUTABLE)
-
-$(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LDFLAGS) $(OBJECTS) $(LIBS) -o $@
-
-.cpp.o:
-	$(CC) $(CFLAGS) $< -o $@
-
-clean:
-	rm -frd $(OBJECTS) $(EXECUTABLE)
+all: 
+	$(CC) $(SOURCES) $(CFLAGS) -o $(EXECUTABLE)
