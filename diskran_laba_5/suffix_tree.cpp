@@ -59,7 +59,7 @@ TSuffixTree::TSuffixTree(const std::vector<char> &ch, const char &spec)
     activeLength = 0;
     active_vertex = root = new TNode(ch, spec);
 }
-void TSuffixTree::PushBack(const char &new_ch)
+void TSuffixTree::PushBack(char new_ch)
 {
     text.push_back(new_ch);
     std::map<char, TNode *>::iterator it = active_vertex->edges.end();

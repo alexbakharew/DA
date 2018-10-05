@@ -28,7 +28,7 @@ int main()
                 if (i < result.size() - 1)
                     printf(", ");
             }
-            printf("\n");
+            std::cout << "\n";
         }
     }
     return 0;

@@ -39,6 +39,7 @@ public:
 
 class TSuffixTree
 {
+    public:
     std::string text;
     TNode *root;
     TNode *active_vertex;
@@ -48,8 +49,7 @@ class TSuffixTree
     void DFS(TNode * const &, std::vector<std::size_t> &, const std::size_t &) const;
 
     friend TSuffixArray::TSuffixArray(const TSuffixTree &);
-public:
     explicit TSuffixTree(const std::vector<char> &, const char &);
-    void PushBack(const char &ch);
+    void PushBack(char ch);
     virtual ~TSuffixTree();
 };
