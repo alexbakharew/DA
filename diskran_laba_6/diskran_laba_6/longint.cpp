@@ -131,9 +131,17 @@ TLongInt TLongInt::operator *(const TLongInt& other)
         result.Data.pop_back();
     return result;
 }
-TLongInt TLongInt::pow(int n)
+main()
 {
-
+	std::string s;
+	std::cin >> s;
+	TLongInt n1(s);
+	std::cin >> s;
+	TLongInt n2(s);
+	n1 += n2;
+	n1.print();
+	return 0;
+	
 }
 
 

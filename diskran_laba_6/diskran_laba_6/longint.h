@@ -7,6 +7,7 @@ class TLongInt
 {
 public:
     TLongInt();
+    TLongInt(int n);
     TLongInt(const std::string& number);
     ~TLongInt(){}
     void operator +=(const TLongInt& other);
