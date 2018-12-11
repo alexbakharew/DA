@@ -26,7 +26,7 @@ TLongInt::TLongInt(const std::string& num)
         Data.push_back(tmp);
     }
 
-    while(Data.back() == 0 && num.Data.size() > 1) //geting rid of leading zeros
+    while(Data.back() == 0 && Data.size() > 1) //geting rid of leading zeros
         Data.pop_back();
 
 }
@@ -207,7 +207,57 @@ void TLongInt::operator -= (const TLongInt& num)
 
     return;
 }
+void TLongInt::operator *= (const TLongInt& num)
+{   //num *= num1 ~ num = num * num1
+    if(Data.size() == 1)
+    {
+        if(Data[0] == 0) //multiplication by zero
+            return;//nothing to change
+        else if(Data[0] == 1) // multiplication by one
+        {
+            Data.resize(num.Data.size());
+            for(int i = 0; i < Data.size(); ++i)//simply copy second number into first
+                Data[i] = num.Data[i];
+            return;
+        }
+    }
 
+    if(num.Data.size() == 1)
+    {
+        if(num.Data[0] == 0) //multiplication by zero
+        {
+            Data.resize(num.Data.size());
+            Data[0] = 0;
+            return;
+        }
+        else if(num.Data[0] == 1) //multiplication by one
+            return;//nothing to change
+    }
+
+    std::vector<uint64_t> res(Data.size() + num.Data.size());
+    for(int i = 0; i < Data.size(); ++i)
+    {
+        int remainder = 0;
+        for(int j = 0; j < num.Data.size(); ++ j)
+        {
+            res[i + j] += remainder + (uint64_t(Data[i]) * uint64_t(num.Data[j]));
+            remainder = res[i + j] / BASE;
+            res[i + j] %= BASE;
+        }
+
+        if(remainder != 0)
+            res[num.Data.size() + i] = remainder;
+    }
+
+    while(res.back() == 0 && res.size() > 1)// avoid zeros
+        res.pop_back();
+
+    Data.resize(res.size());//final changes for this number
+    for(int i = 0; i < res.size(); ++i)
+        Data[i] = res[i];
+
+    return;
+}
 TLongInt TLongInt::operator * (const TLongInt& num)
 {// res = num1 * num2
     if(Data.size() == 1)
@@ -250,7 +300,20 @@ TLongInt TLongInt::operator * (const TLongInt& num)
 
     return res_num;
 }
-
+TLongInt TLongInt::Power(long pow)
+{
+    TLongInt result("1");
+    if(pow == 0)
+        return result;
+    while (pow > 0)
+    {
+        if (pow % 2 == 1)
+            result *= (*this);
+        (*this) *= (*this);
+        pow /= 2;
+    }
+    return result;
+}
 
 
 

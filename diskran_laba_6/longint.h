@@ -23,7 +23,9 @@ public:
     void operator = (const TLongInt& num);
     void operator += (const TLongInt& num);
     void operator -= (const TLongInt& num);
+    void operator *= (const TLongInt& num);
     TLongInt operator * (const TLongInt& num);
+    TLongInt Power(long pow);
 
 
 private:
