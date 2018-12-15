@@ -1,14 +1,6 @@
 #include <iostream>
 #include <cstdlib>
 #include "longint.h"
-//int countCapacity()
-//{
-//    int cap = 1;
-//    int base = BASE;
-//    while(base % 10 != 0)
-//        ++cap, base /= 10;
-//    return cap;
-//}
 
 TLongInt::TLongInt(){}
 
@@ -30,10 +22,20 @@ TLongInt::TLongInt(const std::string& num)
         Data.pop_back();
 
 }
+
+TLongInt::TLongInt(const uint64_t& num)
+{
+    std::string charNum = std::to_string(num);
+    *this = TLongInt(charNum);
+}
+
 std::istream& operator >> (std::istream& is, TLongInt& num)
 {
     if(!num.Data.empty())// case when we use one variable twice or more
+    {
         num.Data.clear();
+        num.Data.shrink_to_fit();
+    }
 
     std::string s; //string for raw input
     is >> s;
@@ -55,6 +57,7 @@ std::istream& operator >> (std::istream& is, TLongInt& num)
 
     return is;
 }
+
 std::ostream& operator << (std::ostream& os, const TLongInt& num)
 {
 
@@ -65,6 +68,11 @@ std::ostream& operator << (std::ostream& os, const TLongInt& num)
 
     printf("\n");
     return os;
+}
+
+void TLongInt::operator = (const uint64_t& num)
+{
+    *this = TLongInt(num);
 }
 void TLongInt::operator = (const TLongInt& num)
 {//this = num
@@ -161,6 +169,12 @@ bool TLongInt::operator == (const TLongInt& num)
         return true;
     }
 }
+
+bool TLongInt::operator == (const uint64_t& num)
+{
+    TLongInt tmp(num);
+    return *this == tmp;
+}
 void TLongInt::operator += (const TLongInt& num)
 {
     if(num.Data.size() == 1 && num.Data[0] == 0)// addition by zero
@@ -183,6 +197,7 @@ void TLongInt::operator += (const TLongInt& num)
 
     return;
 }
+
 void TLongInt::operator -= (const TLongInt& num)
 {//this -= num
     if(num.Data.size() == 1 && num.Data[0] == 0)// subtraction by zero
@@ -207,6 +222,7 @@ void TLongInt::operator -= (const TLongInt& num)
 
     return;
 }
+
 void TLongInt::operator *= (const TLongInt& num)
 {   //num *= num1 ~ num = num * num1
     if(Data.size() == 1)
@@ -258,6 +274,14 @@ void TLongInt::operator *= (const TLongInt& num)
 
     return;
 }
+
+void TLongInt::operator *= (const long long& n)
+{
+    TLongInt charNum(n);
+    *this *= charNum;
+    return;
+}
+
 TLongInt TLongInt::operator * (const TLongInt& num)
 {// res = num1 * num2
     if(Data.size() == 1)
@@ -300,6 +324,7 @@ TLongInt TLongInt::operator * (const TLongInt& num)
 
     return res_num;
 }
+
 TLongInt TLongInt::Power(long pow)
 {
     TLongInt result("1");
@@ -315,7 +340,92 @@ TLongInt TLongInt::Power(long pow)
     return result;
 }
 
+size_t TLongInt::Size()
+{
+    return Data.size();
+}
 
+void TLongInt::addZero(int n)
+{
+    for(int i = 0; i < n; ++i)
+        Data.insert(Data.begin(), 0);
+}
+void TLongInt::delZero()
+{
+    Data.erase(Data.begin());
+    //I suppose that first elem is 0 when I use this method
+}
+void TLongInt::operator /= (TLongInt& div)
+{// this /= div
+    //it's known that this >= that divider
+    if(*this == 1)
+    {
+        *this = 0;
+        return;
+    }
+    if(div == 1)
+        return;
+
+    if(*this == div)
+    {
+        *this = 1;
+        return;
+    }
+    std::string res;
+    for(int i = this->Size() - div.Size(); i >= 0; --i)
+    {
+        TLongInt divider = div;
+        divider.addZero(i);
+        if(*this < divider)
+            divider.delZero();
+        int count = 1;
+        while(*this > divider)
+        {
+            *this -= divider;
+            ++count;
+        }
+        res += std::to_string(count);
+    }
+    *this = TLongInt(res);
+    return;
+}
+
+
+void TLongInt::operator %= (TLongInt& div)
+{// this /= div
+    //it's known that this >= that divider
+    if(*this == 1)
+    {
+        *this = 0;
+        return;
+    }
+    if(div == 1)
+        return;
+
+    if(*this == div)
+    {
+        *this = 1;
+        return;
+    }
+    std::string res;
+    int k = this->Size() - div.Size();
+    for(int i = k; i >= 0; --i)
+    {
+        TLongInt divider = div;
+        divider.addZero(i);
+        if(*this < divider)
+            divider.delZero();
+        int count = 1;
+        while(*this > divider)
+        {
+            *this -= divider;
+            ++count;
+        }
+        res += std::to_string(count);
+    }
+//    *this = TLongInt(res);
+    return;
+}
 
 
 

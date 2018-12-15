@@ -84,14 +84,19 @@ int main()
     if(n1 < n2)
         std::cout << "n1 < n2\n"; // TODO
     */
+//    while(1)
+//    {
+//        long pow;
+//        std::cin >> n1 >> pow;
+//        auto res = n1.Power(pow);
+//        std::cout << res << std::endl;
+//    }
     while(1)
     {
-        long pow;
-        std::cin >> n1 >> pow;
-        auto res = n1.Power(pow);
-        std::cout << res << std::endl;
+        std::cin >> n1 >> n2;
+        n1 %= n2;
+        std::cout << n1 <<std::endl;
     }
-
     return 0;
 }
 
