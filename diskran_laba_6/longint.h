@@ -20,8 +20,12 @@ public:
     friend std::ostream& operator << (std::ostream& os, const TLongInt& n);
     bool operator < (const TLongInt& num);
     bool operator > (const TLongInt& num);
+    bool operator >= (const TLongInt& num);
+    bool operator >= (const uint64_t& num);
     bool operator == (const TLongInt& num);
     bool operator == (const uint64_t& num);
+    bool operator != (const TLongInt& num);
+    bool operator != (const uint64_t& num);
     void operator = (const TLongInt& num);
     void operator = (const uint64_t& num);
     void operator += (const TLongInt& num);
@@ -33,11 +37,12 @@ public:
     TLongInt operator * (const TLongInt& divider);
     TLongInt Power(long pow);
     size_t Size();
+    void addZero(int n);//function for quick multiplication on current BASE * n
+    void delZero();//function for quick division on current BASE
 
 private:
     std::vector<int> Data;
-    void addZero(int n);//function for quick multiplication on current BASE * n
-    void delZero();//function for quick division on current BASE
+
 };
 
 #endif // LONGINT

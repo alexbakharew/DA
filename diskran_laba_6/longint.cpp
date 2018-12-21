@@ -175,6 +175,30 @@ bool TLongInt::operator == (const uint64_t& num)
     TLongInt tmp(num);
     return *this == tmp;
 }
+bool TLongInt::operator >= (const TLongInt& num)
+{
+    if(*this > num || *this == num)
+        return true;
+    else
+        return false;
+}
+bool TLongInt::operator >= (const uint64_t& num)
+{
+    return *this >= TLongInt(num);
+}
+bool TLongInt::operator != (const TLongInt& num)
+{
+    if(*this == num)
+        return false;
+    else
+        return true;
+}
+
+bool TLongInt::operator != (const uint64_t& num)
+{
+    TLongInt tmp(num);
+    return *this != tmp;
+}
 void TLongInt::operator += (const TLongInt& num)
 {
     if(num.Data.size() == 1 && num.Data[0] == 0)// addition by zero
@@ -378,14 +402,18 @@ void TLongInt::operator /= (TLongInt& div)
         divider.addZero(i);
         if(*this < divider)
             divider.delZero();
-        int count = 1;
-        while(*this > divider)
+        int count = 0;
+        while(*this >= divider)
         {
             *this -= divider;
             ++count;
         }
+        if(*this != 0)
+            --count;
         res += std::to_string(count);
     }
+
+
     *this = TLongInt(res);
     return;
 }
@@ -416,7 +444,7 @@ void TLongInt::operator %= (TLongInt& div)
         if(*this < divider)
             divider.delZero();
         int count = 1;
-        while(*this > divider)
+        while(*this >= divider)
         {
             *this -= divider;
             ++count;
