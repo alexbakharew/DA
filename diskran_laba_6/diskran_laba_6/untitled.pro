@@ -5,7 +5,7 @@ CONFIG -= qt
 
 SOURCES += \
     main.cpp \
-    TBigInt.cpp
+    TLongInt.cpp
 
 HEADERS += \
-    TBigInt.h
+    TLongInt.h

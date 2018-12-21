@@ -1,0 +1,385 @@
+
+%% * Copyright (c) w495, 2009 
+%% *
+%% * All rights reserved.
+%% *
+%% * Redistribution and use in source and binary forms, with or without
+%% * modification, are permitted provided that the following conditions are met:
+%% *     * Redistributions of source code must retain the above copyright
+%% *       notice, this list of conditions and the following disclaimer.
+%% *     * Redistributions in binary form must reproduce the above copyright
+%% *       notice, this list of conditions and the following disclaimer in the
+%% *       documentation and/or other materials provided with the distribution.
+%% *     * Neither the name of the w495 nor the
+%% *       names of its contributors may be used to endorse or promote products
+%% *       derived from this software without specific prior written permission.
+%% *
+%% * THIS SOFTWARE IS PROVIDED BY w495 ''AS IS'' AND ANY
+%% * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+%% * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+%% * DISCLAIMED. IN NO EVENT SHALL w495 BE LIABLE FOR ANY
+%% * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+%% * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+%% * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+%% * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+%% * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+%% * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+\documentclass[pdf, unicode, 12pt, a4paper,oneside,fleqn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2B]{fontenc}
+\usepackage[english,russian]{babel}
+
+%\usepackage[argument]{graphicx}
+%\graphicspath{{pictures/}}
+%\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\frenchspacing
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage[table]{xcolor}  
+\usepackage{array}
+\usepackage{color}
+\usepackage{xcolor}
+
+\usepackage{hyperref}
+\usepackage{verbatim}
+
+\newcommand{\MYhref}[3][blue]{\href{#2}{\color{#1}{#3}}}%
+
+\usepackage{listings}
+\usepackage{alltt}
+\usepackage{csquotes}
+\DeclareQuoteStyle{russian}
+	{\guillemotleft}{\guillemotright}[0.025em]
+	{\quotedblbase}{\textquotedblleft}
+\ExecuteQuoteOptions{style=russian}
+
+\usepackage{graphicx}
+
+\usepackage{listings}
+\lstset{tabsize=2,
+	breaklines,
+	columns=fullflexible,
+	flexiblecolumns,
+	numbers=left,
+	numberstyle={\footnotesize},
+	extendedchars,
+	inputencoding=utf8}
+
+\usepackage{longtable}
+
+\def\@xobeysp{ }
+\def\verbatim@processline{\hspace{1.2cm}\raggedright\the\verbatim@line\par}
+
+\oddsidemargin=-0.4mm
+\textwidth=160mm
+\topmargin=4.6mm
+\textheight=210mm
+
+\parindent=0pt
+\parskip=3pt
+
+\definecolor{lightgray}{gray}{0.9}
+
+
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{gray},
+  identifierstyle=\color{black},
+  stringstyle=\color{blue},
+}
+
+\lstdefinestyle{customasm}{
+  belowcaptionskip=1\baselineskip,
+  frame=L,
+  xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\itshape\color{purple!40!black},
+}
+
+\lstset{escapechar=@,style=customc}
+
+
+\newcommand{\CWPHeader}[1]{\addtocounter{section}{-1}\section{#1}}
+
+% Заголовок курсовой работы
+% Единственный аргумент --- ее тема
+\newcommand{\CWHeader}[1]{\section*{#1}}
+
+\newcommand{\CWProblem}[1]{\par\textbf{Задача: }#1}
+
+\begin{document}
+
+\begin{center}
+\bfseries
+
+{\Large Московский авиационный институт\\ (национальный исследовательский университет)
+
+}
+
+\vspace{48pt}
+
+{\large Факультет информационных технологий и прикладной математики
+}
+
+\vspace{36pt}
+
+
+{\large Кафедра вычислительной математики и~программирования
+
+}
+
+
+\vspace{48pt}
+
+Лабораторная работа №6 по курсу \enquote{Дискретный анализ}
+
+\end{center}
+
+\vspace{72pt}
+
+\begin{flushright}
+\begin{tabular}{rl}
+Студент: & А.\,Т. Бахарев\\
+Преподаватель: & А.\,А. Кухтичев \\
+Группа: & М8О-206Б \\
+Дата: & \\
+Оценка: & \\
+Подпись: & \\
+\end{tabular}
+\end{flushright}
+
+\vfill
+\pagestyle{empty}
+\begin{center}
+\bfseries
+Москва, \the\year
+\end{center}
+\pagebreak
+
+\CWHeader{Лабораторная работа \textnumero 6}
+\setcounter{page}{1}
+\CWProblem{ 
+Необходимо разработать программную библиотеку на языке C++, реализующую простейшие арифметические действия и проверку условий над целыми неотрицательными числами. На основании этой библиотеки, нужно составить программу, выполняющую вычисления над парами десятичных чисел и выводящую результат на стандартный файл вывода.
+
+Список арифметических операций: 
+{\begin{itemize}
+    \item Сложение (+).
+    \item Вычитание (-).
+    \item Умножение (*).
+    \item Деление (/).
+    \item Возведение в степень (\^).
+\end{itemize}}
+
+В случае возникновения переполнения в результате вычислений, попытки вычесть из меньшего числа большее, деления на ноль или возведении нуля в нулевую степень, программа должна вывести на экран строку Error.
+
+Список условий:
+\begin{itemize}
+    \item Больше (>).
+    \item Меньше (<).
+    \item Равно (=).
+\end{itemize}
+
+В случае выполнения условия, программа должна вывести на экран строку {\bf true}, в противном случае — {\bf false}.
+
+{\bf Ограничения.}
+
+Количество десятичных разрядов целых чисел не превышает 100000. Основание выбранной системы счисления для внутреннего представления «длинных» чисел должно быть не меньше 10000.
+
+{\bf Формат входных данных.}
+
+Входный файл состоит из последовательностей заданий, каждое задание состоит их трех строк:
+\begin{enumerate}
+    \item Первый операнд операции.
+    \item Второй операнд операции.
+    \item Символ арифметической операции или проверки условия (+, -, *, \^, /, >, <, =).
+\end{enumerate}
+
+Числа, поступающие на вход программе, могут иметь «ведущие нули».
+
+{\bf Формат выходных данных}
+
+Для каждого задания из входного файла нужно распечатать результат на отдельной строке в выходном файле:
+\begin{enumerate}
+    \item Числовой результат для арифметических операций.
+    \item Строку Error в случае возникновения ошибки при выполнении арифметичесокй операции.
+    \item Строку true или false при выполнении проверки условия.
+\end{enumerate}
+
+В выходных данных вывод чисел должен быть нормализован, то есть не содержать в себе «ведущих» нулей.
+
+}
+
+\pagestyle{plain}
+\pagebreak
+%%-------------------------------------------------------------------------------------
+\section{Метод решения}
+{\bf Длинная арифметика} — это набор программных средств (структуры данных и алгоритмы), которые позволяют работать с числами гораздо больших величин, чем это позволяют стандартные типы данных.
+
+Основная идея заключается в том, что число хранится в виде массива его цифр. Цифры могут храниться в той или иной системе счисления. Если использовать стандартную(при вводе) десятичную систему счисления, то время работы будет существенно большим, так как количество элементов массива будут соответствовать количеству разрядов десятичного числа. 
+
+Поэтому стоит хранить числа в степени {\bf n} исходной системы счисления как предлагается в задании — $10^4$, но можно взять и больше, но всё зависит от типа данных в массиве.
+
+Я использовал беззнаковый тип {\it std:size\_t}, который имеет предел до $2*2^{31} - 1$.
+
+Числа могут иметь любую систему счисления, которую укажет пользователь библиотеки, поэтому в каждой операции проверяется совместимость двух чисел. Если они несовместимы, то программа завершается с указаением ошибки.
+
+После каждой бинарной операции из результата удаляются все лидирующие нули.
+
+{\bf Замечание}: задание существенно облегчается неотрицательностью чисел.
+
+\subsection{Проверка условия.}
+
+В этом случае всё довольно просто. Неободимо пройтись по i-ому разряду двух чисел от старшего к младшему и сравнивать элементы, пока не встретятся разные значения в разрядах чисел. Если таких разрядов нет, то числа равны, иначе большим будет число с первым попавшимся большим разрядом. 
+
+{\bf Линейная оценка: } $\Theta{(min\{n, m\})}$, где m,n — количество разрядов двух чисел. 
+
+\subsection{Сложение.}
+
+Необходимо пройтись от младшего разряда к старшему двух чисел и поместить результат сложения по текущему разряду в отдельную переменную, если значение переменной будет больше основания системы счисления, то прибавляем к следующему элементу разряда результата единицу и вычитаем основание из переменной. Процесс продолжается до тех пор, пока итерация не дойдет до самого старшего разряда двух чисел или остаток для следующего разряда будет равен нулю.
+
+{\bf Линейная оценка: } $\Theta{(max\{n, m\})}$, где m,n — количество разрядов двух чисел. 
+
+\subsection{Вычитание.}
+Перед проведением операции вычитания проводится проверка — первый операнд больше или равен второму, чтобы результирующее число было неотрицательным. Операция происходит аналогично сложению, только при отрицательности сложения двух разрядов берется разряд из следующего разряда первого операнда.
+
+
+\subsection{Умножение.}
+Как в обычном умножении столбиком необходимо проитерироваться по разрядам от младшего к старшему второго операнда и произвести умножение на первое число. 
+
+{\bf Свойство умножения: } ответ будет содержать максимум m+n разрядов.
+
+
+{\bf Линейная оценка: } $\Theta{(n*m)}$, где m,n — количество разрядов двух чисел.
+
+\subsection{Возведение в степень.}
+Данную операцию можно решить перемножением исходного числа <<в лоб>>, а можно воспользоваться быстрым возведением в степень. 
+
+{\bf Линейная оценка: } $\Theta{(n*\log{d})}$, где n — количество разрядов числа, а d — степень числа.
+
+
+\subsection{Деление.}
+Количество разрядов у частного от деления не превосходит количества разрядов у делимого, поэтому следует формировать ответ со старшего разряда. На каждой итерации имеем текущее значение, которое пытаемся уменьшить на максимально большое количество раз делимым. Можно было бы необходимое количество раз найти циклом от 0 до максимального значения разряда, но можно обойтись более красивым вариантом, а именно — {\bf бинарным поиском}. 
+
+Корректность этого утверждения вытекает из того, что рассматриваемая функция, которую можно представить в виде $b*x$ (где b – делимое, x – подбираемое значение) является {\bf монотонно-возрастающей}.
+
+{\bf Линейная оценка: } $\Theta{(n*\log{m})}$, где m,n — количество разрядов двух чисел. 
+\newpage
+
+
+
+\section{Описание библиотеки TLongInt.}
+\begin{longtable}{|p{8.92cm}|p{8.0cm}|}
+\hline
+\rowcolor{lightgray}
+
+\multicolumn{2}{|c|} {public}\\
+\hline
+TLongInt(); &Пустой конструктор.\\
+TLongInt(std::size\_t nRadix, std::size\_t tBase);&Конструктор создает nRadix пустых разрядов числа с основанием tBase.\\
+TLongInt(const std::string \& tLine, const std::size\_t tBase);&Конструктор, который преобразует строку в большое число с основанием tBase.\\
+
+void Show();&Печать числа в stdout поток.\\
+
+TLongInt(const TLongInt \&otherNum);&Конструктор копирования, необходим для присваивания.\\
+
+\hline
+TLongInt operator+(const TLongInt \&otherNum);&Бинарный оператор сложения.\\
+
+TLongInt operator-(const TLongInt \&otherNum);&Бинарный оператор вычитания.\\
+
+TLongInt operator*(const TLongInt \&otherNum);&Бинарный оператор умножения.\\
+TLongInt operator*(const int \&otherNum) const;&Бинарный оператор умножения на маленькое число.\\
+
+TLongInt operator\^(int degree);&Бинарный оператор возведения в степень.\\
+
+TLongInt operator/(const TLongInt \&otherNum);&Бинарный оператор деления.\\
+
+%friend Comparisson Revelation(TLongInt\& a, TLongInt\& b);&Воз\\
+
+bool isNull();&Проверка явлется ли число нулём.\\
+
+virtual ~TLongInt()&Деструктор.\\
+\hline
+\multicolumn{2}{|c|} {private}\\
+\hline
+std::size\_t isLength() const;&Возращает количество разрядов числа.\\
+void SetData(std::size\_t position, int row);&Меняет значение разряда на row в позиции position.\\
+int GetData(std::size\_t position) const;&Возвращает значение разряда position.\\
+void ShiftUp();&Смещает все разряды вверх (для деления).\\
+void DeleteZeros();&Удаляет ведущие нули.\\
+\hline
+\multicolumn{2}{|c|} {protected}\\
+\hline
+std::vector<int> data;&Вектор разрядов.\\
+std::size\_t length;&Количество разрядов.\\
+std::size\_t base;&Степень основания.\\
+std::size\_t fullBase;&Основание системы счисления.\\
+\hline
+\end{longtable}
+\newpage
+
+\section{Консоль}
+\begin{alltt}
+alex\$ make
+g++ -std=c++11 -o diskran_laba_6 -pedantic -Wall -Werror -Wno-sign-compare -Wno-long-long -lm main.cpp TLongInt.cpp
+alex\$ ./*6
+10 50000000000 +
+50000000010
+1000 1000 *
+1000000
+16128735 9712 /
+1660
+6 10 ^
+60466176
+2 3 >
+false
+5 5 =
+true
+90 1 -
+89
+alex\$
+\end{alltt}
+\pagebreak
+%===============================================
+
+\pagebreak
+\section{Выводы}
+Данная лабораторная работа была довольно интересной. Даже операции с числами не бывают простыми и можно легко найти подводный камень. Самое сложное было написать алгоритм деления двух чисел: подбирать бинарным поиском максимальный по системе счисления множитель, на который следует делить первое слагаемое. Метод Карацубы дает выигрыш в умножении, но только с более длинными числами. 
+Если необходимы более быстрые выисления, то нужно всего лишь явно указать более высокую степень десятичной системы счисления, чем указана по умолчанию. Можно использовать написанную библиотеку для решения своих повседневных задач. Но ведь в Python есть поддержка длинной арифметики. Поэтому пока я не могу найти применение библиотеки, но это был хороший опыт.
+
+\pagebreak
+
+
+\begin{thebibliography}{5}
+\bibitem{Kormen}
+Томас Х. Кормен, Чарльз И. Лейзерсон, Рональд Л. Ривест, Клиффорд Штайн. Алгоритмы: построение и анализ, 2-е издание. — Издательский дом «Вильямс», 2007. Перевод с английского: И. В. Красиков, Н. А. Орехова, В. Н. Романов. — 1296 с. (ISBN 5-8459-0857-4 (рус.))(дата обращения: 17.12.2018).
+\bibitem{knuth}
+Дональд Кнут, <<Искусство программирования>>, том 2, <<Получисленные алгоритмы>>, 3-е издание. Глава 4.3,
+<<Арифметика многкратной точности>>, стр. 304–335.(дата обращения: 17.12.2018).
+\bibitem{wikipedia_btree}
+{\itshape Алгоритм деления двух чисел} \\URL:\texttt{https://mindhalls.ru/big-number-in-c-cpp-add-sub/} (дата обращения: 17.12.2018). 
+\bibitem{visual}
+{\itshape Умножение чисел методом Карацубы} \\URL:\texttt{https://habrahabr.ru/post/124258/} (дата обращения: 17.12.2018).
+\bibitem{REal}{\itshape Перегрузка операторов} \\URL:\texttt{https://habrahabr.ru/post/132014/} (дата обращения: 17.12.2018).
+\end{thebibliography}
+\pagebreak
+
+
+\end{document}
+ 
+ 
