@@ -1,7 +1,11 @@
 # DA
 All labs by Discrete Analysis
 III and IV sems
-tasks - https://drive.google.com/drive/folders/1rKe-oaC2LYAWROlHi4BmCNDyjxKd98e1
+
+tasks:
+
+https://drive.google.com/drive/folders/1rKe-oaC2LYAWROlHi4BmCNDyjxKd98e1
+
 https://drive.google.com/drive/folders/1OdQwTaMcvEFOjfcwL8-zEf7QGTUWOwTb
 
 1. Radix Sort
